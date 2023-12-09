@@ -10,7 +10,6 @@
   - `wget http://{machineIP}:8000/{some file name}` is used to download some file from the webserver hosted on the {machineIP}.
     
 - `ps` command is used to provide a list of the running processes as our user's session and some additional informationo. To see the processes run by other users and those that don't run from a session (i.e. system processes), we need to provide aux to the ps command like so: `ps aux`
-  
 - `top` gives you real-time statistics about the processes running on your system instead of a one-time view.
   
 ## Notes
