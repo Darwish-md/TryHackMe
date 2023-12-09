@@ -14,8 +14,8 @@
 - `top` gives you real-time statistics about the processes running on your system instead of a one-time view.
 
 - To kill a process, we can use the appropriately named `kill` command and the associated PID that we wish to kill. ex: `kill 1337`. Below are some of the signals that we can send to a process when it is killed:
-  - SIGTERM - Kill the process, but allow it to do some cleanup tasks beforehand
-  - SIGKILL - Kill the process - doesn't do any cleanup after the fact
-  - SIGSTOP - Stop/suspend a process
+  - `SIGTERM` Kill the process, but allow it to do some cleanup tasks beforehand
+  - `SIGKILL` Kill the process - doesn't do any cleanup after the fact
+  - `SIGSTOP` Stop/suspend a process
 ## Notes
 - 
