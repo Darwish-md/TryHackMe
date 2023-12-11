@@ -17,5 +17,9 @@
   - `SIGTERM` Kill the process, but allow it to do some cleanup tasks beforehand
   - `SIGKILL` Kill the process - doesn't do any cleanup after the fact
   - `SIGSTOP` Stop/suspend a process
-## Notes
-- 
+
+- `systemctl [option] [service]` is used to interact with systemd process/daemon. ex: `systemctl start apache2`.
+
+- With our process backgrounded using either Ctrl + Z or the & operator, we can use fg to bring this back to focus
+
+- crontabs are files with specific formatting that can be recognised by `cron` process which is used to automate processes. 6 values are needed `MIN HOUR DOM MON DOW CMD`, ex: crontab file will have the command `0 *12 * * * cp -R /home/cmnatic/Documents /var/backups/` which is used to exceute the backup every 12 hours. `crontab -e` is used to add, edit, or delete a cron job.
