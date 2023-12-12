@@ -3,7 +3,7 @@
 
 ## Processes:
 ### 1. `System`:
-What is unusual behaviour for this process?
+***What is unusual behaviour for this process?***
 - A parent process (aside from System Idle Process (0))
 - Multiple instances of System. (Should only be one instance) 
 - A different PID. (Remember that the PID will always be PID 4)
@@ -22,3 +22,26 @@ What is unusual behaviour for this process?
 - The running User is not the SYSTEM user
 - Unexpected registry entries for Subsystem
 
+### 3. `csrss.exe` (Client Server Runtime subsystem)
+- The user-mode side of the Windows subsystem.
+- This process is responsible for the Win32 console window and process thread creation and deletion as well as making the Windows API available to other processes, mapping drive letters, and handling the Windows shutdown process
+
+***What is unusual?***
+- An actual parent process. (smss.exe calls this process and self-terminates)
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes masquerading as csrss.exe in plain sight
+- The user is not the SYSTEM user.
+
+### 4. `wininit.exe`:
+- The Windows Initialization Process, wininit.exe, is responsible for launching services.exe (Service Control Manager), lsass.exe (Local Security Authority), and lsaiso.exe (only if credential guard is enabled) within Session 0.
+
+***What is unusual?***
+- An actual parent process. (smss.exe calls this process and self-terminates)
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes in plain sight
+- Multiple running instances
+- Not running as SYSTEM
+
+### 5. `services.exe` Service Control Manager (SCM):
+- Its primary responsibility is to handle system services: ***loading services, interacting with services and starting or ending services***. It maintains a database that can be queried using a Windows built-in utility, `sc.exe`
+- Information regarding services is stored in the registry, ```HKLM\System\CurrentControlSet\Services```
