@@ -1,4 +1,4 @@
-- A processor in a computer running Windows has two different modes: ***user mode*** and ***kernel mode***. The processor switches between the two modes depending on what type of code is running on the processor.
+A processor in a computer running Windows has two different modes: ***user mode*** and ***kernel mode***. The processor switches between the two modes depending on what type of code is running on the processor.
  Applications run in user mode, and core operating system components run in kernel mode. While many drivers run in kernel mode, some drivers may run in user mode.
 
 ## Processes:
@@ -88,7 +88,7 @@
 - Shell value in the registry other than explorer.exe
 
 ### 9. `explorer.exe` Windows Explorer:
-- This process gives the user access to their folders and files. It also provides functionality for other features, such as the Start Menu and Taskbar.
+- It is responsible for managing the graphical user interface (GUI) aspects, including the desktop, taskbar, Start menu, File Explorer (previously known as Windows Explorer), and other graphical elements.
 - Userinit.exe exits after spawning explorer.exe. Because of this, the parent process is non-existent.
   
 ***What is unusual?***
@@ -98,7 +98,11 @@
 - Subtle misspellings to hide rogue processes in plain sight
 - Outbound TCP/IP connections
 
-### 10. RuntimeBroker.exe
+### 10. `RuntimeBroker.exe`
+- Its primary function is to handle permissions for apps obtained from the Windows Store. It acts as a ***middleman*** between the apps and various system resources, managing permissions for accessing certain features such as accessing files, devices, or restricted areas of the system (Microphone, etc).
 
-### 11. taskhostw.exe  (formerly taskhost.exe and taskhostex.exe)
+### 11. `taskhostw.exe`  (formerly taskhost.exe and taskhostex.exe)
+- taskhost.exe is a system process responsible for running tasks and services in a shared hosting container. It acts as an intermediary for launching and managing various background tasks or services in the Windows operating system. This process helps ensure the smooth execution of DLLs (dynamic link libraries) that are designed to run in a shared service process.
 
+### Windows Processes Diagram
+![image](https://github.com/Darwish-md/TryHackMe/assets/72353586/32d17f70-f5e7-48c5-81cc-cda2b300ef4f)
