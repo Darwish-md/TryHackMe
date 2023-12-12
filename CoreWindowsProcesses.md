@@ -10,4 +10,15 @@ What is unusual behaviour for this process?
 - Not running in Session 0
   
 ### 2. `smss.exe` (session manager subsystem):
+- The first user-mode process started by the kernel.
+- This process starts the kernel and user modes of the Windows subsystem.
+- This subsystem includes `win32k.sys` (kernel mode), `winsrv.dll` (user mode), and `csrss.exe` (user mode).
+- `Smss.exe` starts `csrss.exe` (Windows subsystem) and `wininit.exe` in Session 0, an isolated Windows session for the operating system, and `csrss.exe` and `winlogon.exe` for Session 1, which is the user session.
+  
+***What is unusual?***
+- A different parent process other than System (4)
+- The image path is different from C:\Windows\System32
+- More than one running process. (children self-terminate and exit after each new session)
+- The running User is not the SYSTEM user
+- Unexpected registry entries for Subsystem
 
