@@ -45,3 +45,60 @@
 ### 5. `services.exe` Service Control Manager (SCM):
 - Its primary responsibility is to handle system services: ***loading services, interacting with services and starting or ending services***. It maintains a database that can be queried using a Windows built-in utility, `sc.exe`
 - Information regarding services is stored in the registry, ```HKLM\System\CurrentControlSet\Services```
+- This process is the parent to several other key processes: `svchost.exe`, `spoolsv.exe`, `msmpeng.exe`, and `dllhost.exe`, to name a few.
+
+***What is unusual?***
+- A parent process other than wininit.exe
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes in plain sight
+- Multiple running instances
+- Not running as SYSTEM
+
+### 6. `svchost.exe` Service Host:
+-  Service Host (Host Process for Windows Services) is responsible for hosting and managing Windows services.
+
+***What is unusual?***
+- A parent process other than services.exe
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes in plain sight
+- The absence of the -k parameter
+
+### 7. `lsass.exe` Local Security Authority Subsystem Service:
+- It is responsible for enforcing the security policy on the system. It verifies users logging on to a Windows computer or server, handles password changes, and creates access tokens. It also writes to the Windows Security Log.
+- It creates security tokens for SAM (Security Account Manager), AD (Active Directory), and NETLOGON.
+
+***What is unusual?***
+- A parent process other than wininit.exe
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes in plain sight
+- Multiple running instances
+- Not running as SYSTEM
+
+### 8. `winlogon.exe`:
+- It is responsible for:
+  - handling the ***Secure Attention Sequence (SAS)***.
+  - loading the user profile. It loads the user's NTUSER.DAT into HKCU, and userinit.exe loads the user's shell.
+  - locking the screen and running the user's screensaver, among other functions.
+
+***What is unusual?***
+- An actual parent process. (smss.exe calls this process and self-terminates)
+- Image file path other than C:\Windows\System32
+- Subtle misspellings to hide rogue processes in plain sight
+- Not running as SYSTEM
+- Shell value in the registry other than explorer.exe
+
+### 9. `explorer.exe` Windows Explorer:
+- This process gives the user access to their folders and files. It also provides functionality for other features, such as the Start Menu and Taskbar.
+- Userinit.exe exits after spawning explorer.exe. Because of this, the parent process is non-existent.
+  
+***What is unusual?***
+- An actual parent process. (userinit.exe calls this process and exits)
+- Image file path other than C:\Windows
+- Running as an unknown user
+- Subtle misspellings to hide rogue processes in plain sight
+- Outbound TCP/IP connections
+
+### 10. RuntimeBroker.exe
+
+### 11. taskhostw.exe  (formerly taskhost.exe and taskhostex.exe)
+
