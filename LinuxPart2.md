@@ -8,4 +8,4 @@
 - file Determine the type of a file
 - su to change user
 ## Notes:
-- connect to ssh using command `ssh {username}@IP`
+- connect to ssh using command `ssh {username}@IP` or `ssh -i id_rsa username@host`
