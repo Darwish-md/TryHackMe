@@ -8,4 +8,6 @@
 - It is the process of gathering information on a target in order to find potential attack vectors and aid in exploitation.
 - It can be used to gather usernames, passwords, network information, hostnames, application data, services, or any other information that may be valuable to an attacker.
 
+- SMB runs on ports 139/tcp netbios-ssn and 445/tcp microsoft-ds
+
   
