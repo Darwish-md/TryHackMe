@@ -11,5 +11,17 @@
 - `enum4linux [options] ip` can be used to enumerate SMB shares on both Windows and Linux systems.
 - After getting to know the share names on a server, We can remotely access the SMB share using the syntax: `smbclient //[IP]/[SHARE]` Followed by the tags: -U [name] : to specify the user -p [port] : to specify the port
 
+### NMAP
+- To look for open ports in the most common 1000 ports: `nmap ip`
+- for all ports: `nmap -p- ip`, for range of ports `nmap -p x-y ip`
+- `-sV`: Enables service version detection. It attempts to determine the version of the running services on the target.
+- `-A`: Aggressive scan. It includes additional features like OS detection, script scanning, and traceroute.
+
+## Telnet
+- Telnet is an application protocol which allows you, with the use of a telnet client, to connect to and execute commands on a remote machine that's hosting a telnet server.
+- You can connect to a telnet server with the following syntax: `telnet [ip] [port]`
+- Telnet has been replaced by SSH in most implementations in some applications due to the vulnerabilities discovered and that it sends messages in clear text.
+> A reverse shell is a type of shell in which the target machine communicates back to the attacking machine.
+- 
 
   
