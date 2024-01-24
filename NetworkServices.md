@@ -30,5 +30,4 @@
 - The FTP server may support either Active or Passive connections, or both.
   - In an Active FTP connection, the client opens a port and listens. The server is required to actively connect to it. 
   - In a Passive FTP connection, the server opens a port and listens (passively) and the client connects to it. 
-
   
