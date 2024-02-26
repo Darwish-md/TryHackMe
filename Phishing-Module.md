@@ -36,4 +36,7 @@ Different types of malicious emails can be classified as one of the following:
   
 ## Notes:
 - The syntax for email messages is known as the Internet Message Format (IMF).
-- A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions. 
+- A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions.
+- A single `tracking pixel` is embedded in the email, usually (but not always) hidden within an image or a link. When the email is opened, code within the pixel sends the info back to the company’s server. 
+- A typosquatting attack, also known as a URL hijacking, a sting site, or a fake URL, is a type of social engineering where threat actors impersonate legitimate domains for malicious purposes.
+- BCC (Blind Carbon Copy):  When you place email addresses in the BCC field of a message, those addresses are invisible to the recipients of the email. 
