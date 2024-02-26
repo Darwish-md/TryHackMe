@@ -24,3 +24,7 @@
 - SMTP | Port 465 (Secure Transport — SSL function enabled)
 - SMTP | Port 587 (Insecure Transport, but can be upgraded to a secure connection using STARTTLS).
 - SMTP | Port 25 (Outdated and not recommended. username/password authentication MUST be enabled if using this port.)
+
+## Notes:
+- The syntax for email messages is known as the Internet Message Format (IMF).
+- 
