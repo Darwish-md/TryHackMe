@@ -25,6 +25,15 @@
 - SMTP | Port 587 (Insecure Transport, but can be upgraded to a secure connection using STARTTLS).
 - SMTP | Port 25 (Outdated and not recommended. username/password authentication MUST be enabled if using this port.)
 
+## Phishing:
+Different types of malicious emails can be classified as one of the following:
+- Spam - unsolicited junk emails sent out in bulk to a large number of recipients. The more malicious variant of Spam is known as MalSpam.
+- Phishing -  emails sent to a target(s) purporting to be from a trusted entity to lure individuals into providing sensitive information. 
+- Spear phishing - takes phishing a step further by targeting a specific individual(s) or organization seeking sensitive information.  
+- Whaling - is similar to spear phishing, but it's targeted specifically to C-Level high-position individuals (CEO, CFO, etc.), and the objective is the same. 
+- Smishing - takes phishing to mobile devices by targeting mobile users with specially crafted text messages. 
+- Vishing - is similar to smishing, but instead of using text messages for the social engineering attack, the attacks are based on voice calls.
+  
 ## Notes:
 - The syntax for email messages is known as the Internet Message Format (IMF).
-- 
+- A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions. 
