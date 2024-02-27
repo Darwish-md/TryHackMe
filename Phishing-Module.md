@@ -31,7 +31,13 @@ Different types of malicious emails can be classified as one of the following:
 - Whaling - is similar to spear phishing, but it's targeted specifically to C-Level high-position individuals (CEO, CFO, etc.), and the objective is the same. 
 - Smishing - takes phishing to mobile devices by targeting mobile users with specially crafted text messages. 
 - Vishing - is similar to smishing, but instead of using text messages for the social engineering attack, the attacks are based on voice calls.
-  
+
+## Pishing prevention:
+### SPF (Sender Policy Framework):
+"Sender Policy Framework (SPF) is used to authenticate the sender of an email. With an SPF record in place, Internet Service Providers can verify that a mail server is authorized to send email for a specific domain. An SPF record is a DNS TXT record containing a list of the IP addresses that are allowed to send email on behalf of your domain."
+
+***Example of SPF record***
+> `v=spf1 ip4:127.0.0.1 include:_spf.google.com -all`
 ## Notes:
 - The syntax for email messages is known as the Internet Message Format (IMF).
 - A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions.
