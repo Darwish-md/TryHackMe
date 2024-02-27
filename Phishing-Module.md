@@ -12,7 +12,7 @@
 ### IMAP:
 - IMAP syncs your mail client program with the server. Since emails stay on the server, you can see all your emails from any mail client program or device.
 
-## Ports:
+## Ports
 ### Incoming:
 - IMAP | Port 993 (Secure Transport   — SSL function enabled) RECOMMENDED.
 - POP3 | Port 995 (Secure Transport   — SSL function enabled)
