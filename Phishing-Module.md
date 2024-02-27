@@ -34,7 +34,7 @@ Different types of malicious emails can be classified as one of the following:
 
 ## Pishing prevention:
 ### SPF (Sender Policy Framework):
-"Sender Policy Framework (SPF) is used to authenticate the sender of an email. With an SPF record in place, Internet Service Providers can verify that a mail server is authorized to send email for a specific domain. An SPF record is a DNS TXT record containing a list of the IP addresses that are allowed to send email on behalf of your domain."
+Per dmarcian, "Sender Policy Framework (SPF) is used to authenticate the sender of an email. With an SPF record in place, Internet Service Providers can verify that a mail server is authorized to send email for a specific domain. An SPF record is a DNS TXT record containing a list of the IP addresses that are allowed to send email on behalf of your domain."
 
 ***Example of SPF record***
 > `v=spf1 ip4:127.0.0.1 include:_spf.google.com -all`
@@ -48,6 +48,16 @@ Different types of malicious emails can be classified as one of the following:
 v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxTQIC7vZAHHZ7WVv/5x/qH1RAgMQI+y6Xtsn73rWOgeBQjHKbmIEIlgrebyWWFCXjmzIP0NYJrGehenmPWK5bF/TRDstbM8uVQCUWpoRAHzuhIxPSYW6k/w2+HdCECF2gnGmmw1cT6nHjfCyKGsM0On0HDvxP8I5YQIIlzNigP32n1hVnQP+UuInj0wLIdOBIWkHdnFewzGK2+qjF2wmEjx+vqHDnxdUTay5DfTGaqgA9AKjgXNjLEbKlEWvy0tj7UzQRHd24a5+2x/R4Pc7PF/y6OxAwYBZnEPO0sJwio4uqL9CYZcvaHGCLOIMwQmNTPMKGC9nt3PSjujfHUBX3wIDAQAB
 ```
 - `Authentication-Results` email header shows the status of whether DKIM passed or failed.
+
+### DMARM (Domain-based Message Authentication Reporting, & Conformance):
+"DMARC, (Domain-based  Message Authentication Reporting, & Conformance) an open source standard, uses a concept called alignment to tie the result of two other open source standards, SPF (a published list of servers that are authorized to send email on behalf of a domain) and DKIM (a tamper-evident domain seal associated with a piece of email), to the content of an email. If not already deployed, putting a DMARC record into place for your domain will give you feedback that will allow you to troubleshoot your SPF and DKIM configurations if needed."
+
+***Example of DKIM record***
+`v=DMARC1; p=quarantine; rua=mailto:postmaster@website.com`
+
+### S/MIME 
+Per Microsoft, "S/MIME (Secure/Multipurpose internet Mail Extensions) is a widely accepted protocol for sending digitally signed and encrypted messages.". It guarantees data integrity and nonrepudiation.
+- Nonrepudiation: The uniqueness of a signature prevents the owner of the signature from disowning the signature. It prevents the sender of the data from claiming, at a later date, that the data was never sent.
 ## Notes:
 - The syntax for email messages is known as the Internet Message Format (IMF).
 - A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions.
