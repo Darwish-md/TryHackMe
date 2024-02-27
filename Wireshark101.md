@@ -1,0 +1,2 @@
+- The basic steps to gather a PCAP in Wireshark itself can be simple however bringing into traffic can both the hard part as well as the fun part, this can include: ***taps, port mirroring, MAC floods, ARP Poisoning***.
+  - 
