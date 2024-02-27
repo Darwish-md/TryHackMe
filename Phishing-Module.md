@@ -1,5 +1,3 @@
--  Ray Tomlinson invented the concept of emails and made @ symbol famous.
-
 ## There are 3 protocls associated with the process of sending emails:
 1. SMTP (Simple Mail Transfer Protocol) - It is utilized to handle the sending of emails. It is the de facto standard for outgoing email transmissions across the Internet.
  AND  
@@ -40,3 +38,5 @@ Different types of malicious emails can be classified as one of the following:
 - A single `tracking pixel` is embedded in the email, usually (but not always) hidden within an image or a link. When the email is opened, code within the pixel sends the info back to the company’s server. 
 - A typosquatting attack, also known as a URL hijacking, a sting site, or a fake URL, is a type of social engineering where threat actors impersonate legitimate domains for malicious purposes.
 - BCC (Blind Carbon Copy):  When you place email addresses in the BCC field of a message, those addresses are invisible to the recipients of the email. 
+- Ray Tomlinson invented the concept of emails and made @ symbol famous.
+- Malware sandboxes are online tools and services where malicious files can be uploaded and analyzed to better understand what the malware was programmed to do. 
