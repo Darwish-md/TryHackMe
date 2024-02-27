@@ -12,7 +12,7 @@
 ### IMAP:
 - IMAP syncs your mail client program with the server. Since emails stay on the server, you can see all your emails from any mail client program or device.
 
-## Ports
+## Ports:
 ### Incoming:
 - IMAP | Port 993 (Secure Transport   — SSL function enabled) RECOMMENDED.
 - POP3 | Port 995 (Secure Transport   — SSL function enabled)
@@ -38,6 +38,14 @@ Different types of malicious emails can be classified as one of the following:
 
 ***Example of SPF record***
 > `v=spf1 ip4:127.0.0.1 include:_spf.google.com -all`
+
+### DKIM (DomainKeys Identified Mail):
+"DKIM stands for DomainKeys Identified Mail and is used for the authentication of an email that’s being sent. Like SPF, DKIM is an open standard for email authentication that is used for DMARC alignment. A DKIM record exists in the DNS, but it is a bit more complicated than SPF. DKIM’s advantage is that it can survive forwarding, which makes it superior to SPF and a foundation for securing your email."
+
+***Example of DKIM record***
+> `v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxTQIC7vZAHHZ7WVv/5x/qH1RAgMQI+y6Xtsn73rWOgeBQjHKbmIEIlgrebyWWFCXjmzIP0NYJrGehenmPWK5bF/TRDstbM8uVQCUWpoRAHzuhIxPSYW6k/w2+HdCECF2gnGmmw1cT6nHjfCyKGsM0On0HDvxP8I5YQIIlzNigP32n1hVnQP+UuInj0wLIdOBIWkHdnFewzGK2+qjF2wmEjx+vqHDnxdUTay5DfTGaqgA9AKjgXNjLEbKlEWvy0tj7UzQRHd24a5+2x/R4Pc7PF/y6OxAwYBZnEPO0sJwio4uqL9CYZcvaHGCLOIMwQmNTPMKGC9nt3PSjujfHUBX3wIDAQAB
+`
+> `Authentication-Results` email header shows the status of whether DKIM passed or failed.
 ## Notes:
 - The syntax for email messages is known as the Internet Message Format (IMF).
 - A BEC (Business Email Compromise) is when an adversary gains control of an internal employee's account and then uses the compromised email account to convince other internal employees to perform unauthorized or fraudulent actions.
