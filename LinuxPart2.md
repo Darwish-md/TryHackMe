@@ -9,6 +9,6 @@
 - su to change user
 ## Notes:
 - connect to ssh using command `ssh {username}@IP` or `ssh -i id_rsa username@host`
-- to convert from base64: `base64 -d file > file`
-- to find sha265 of a file in binary: `sha265sum file`
-- to find the size of a file in bytes: `stat -c %s file`
+- to convert from base64: `base64 -d file > fileb`
+- to find sha265 of a file in binary: `sha265sum fileb`
+- to find the size of a file in bytes: `stat -c %s fileb`
