@@ -34,3 +34,11 @@
 > For example, a network connection log may exist in various log sources such as Sysmon logs (Event ID 3: Network Connection) and Firewall Logs. The Firewall log may provide the source and destination IP, source and destination port, protocol, and the action taken. In contrast, Sysmon logs may give the process that invoked the network connection and the user running the process.
 
 - Event correlation can build the puzzle pieces to complete the exact scenario from an investigation.
+
+### Baselining:
+Baselining is the process of knowing what is expected to be normal.
+
+### Difference between SIEMs & EDRs:
+- SIEMs focus on centralizing and analyzing security event data from various network sources for real-time monitoring, threat detection, and compliance management. They provide visibility into security incidents across the organization's infrastructure.
+
+- EDRs, on the other hand, specialize in endpoint security by monitoring and responding to threats at the device level. They collect and analyze endpoint telemetry data to detect and respond to advanced threats and suspicious behavior, aiding in threat hunting, incident response, and endpoint protection.
