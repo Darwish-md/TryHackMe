@@ -47,3 +47,22 @@ The Process Explorer display consists of two sub-windows. The top window always 
 #### PsExec
 PsExec is a light-weight telnet-replacement that lets you execute processes on other systems.
 
+### Security utilities:
+#### Sysmon
+System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log.
+
+### System Information:
+#### WinObj
+"WinObj is a 32-bit Windows NT program that uses the native Windows NT API (provided by NTDLL.DLL) to access and display information on the NT Object Manager's name space."
+> NT Object Namespace is a hierarchical database-like structure used by the Windows kernel to manage various system resources and objects. It provides a unified and organized way to represent and access system resources, such as files, devices, processes, threads, registry keys, synchronization objects, and more.
+
+### Miscellaneous
+#### BgInfo
+"It automatically displays relevant information about a Windows computer on the desktop's background, such as the computer name, IP address, service pack version, and more."
+#### RegJump
+"This little command-line applet takes a registry path and makes Regedit open to that path. It accepts root keys in standard (e.g. HKEY_LOCAL_MACHINE) and abbreviated form (e.g. HKLM)." 
+- There are multiple ways to query the Windows Registry without using the Registry Editor, such as via the command line (`reg query`) and PowerShell (`Get-Item`/`Get-ItemProperty`).
+- Using Regjump will open the Registry Editor and automatically open the editor directly at the path, so one doesn't need to navigate it manually.
+#### Strings
+It is used for extracting readable text strings from binary files. It is commonly used in cybersecurity and software development contexts to analyze executable files, libraries, firmware, and other binary data for human-readable text.
+- The following example shows how to look for all strings containing the chars pdb in the exec ZoomIt.exe: `strings C:\Tools\sysint\ZoomIt.exe | findstr /i pdb`.
