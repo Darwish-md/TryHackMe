@@ -25,6 +25,7 @@ This is a tool used to check for file signatures.
 - Streams: Streams refer to the main data content of a file. Every file in NTFS has at least one stream, which contains the primary data associated with the file, such as text, images, or executable code.
 - Alternate Data Streams (ADS): ADS is a feature of NTFS that allows additional data streams to be associated with a file. These additional streams can contain metadata, additional content, or even executable code. ADS allows for the storage of multiple pieces of information within a single file, without altering the original file's content.
 - streams utility is used to display and manipulate alternate data streams (ADS) associated with files on Windows NTFS volumes.
+- To reveal NFTS alternate streams: `streams file`, then we can use `{launcher} file:EXAMPLE` where launcher can be notepad.exe for ex and EXAMPLE would be the alternate stream of file revealed from the first command.
 #### SDelete
 - SDelete is a command line utility that takes a number of options. In any given use, it allows you to delete one or more files and/or directories, or to cleanse the free space on a logical disk.
 - SDelete has been used by adversaries and is associated with MITRE techniques T1485 (Data Destruction) and T1070.004 (Indicator Removal on Host: File Deletion). It's MITRE ID S0195.
