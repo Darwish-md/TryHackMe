@@ -9,7 +9,8 @@ Event logs record events taking place in the execution of a system to provide an
 - DNS Event Logs: DNS servers use these logs to record domain events and to map out
 - Custom Logs: Events are logged by applications that require custom data storage. This allows applications to control the log size or attach other parameters, such as ACLs, for security purposes.
 
-### Event logs can be classified into: [Error, Warning, Information, Success audit, Failure audit]
+### Event logs can be classified into:
+[Error, Warning, Information, Success audit, Failure audit]
 ### There are three main ways of accessing these event logs within a Windows system:
 #### Event Viewer (GUI-based application)
 #### Wevtutil.exe (command-line tool)
