@@ -20,7 +20,4 @@ Event logs record events taking place in the execution of a system to provide an
 - To count how many objects were printed by PowerShell in the terminal, we can use `| measure-object`.
 - A cmdlet, pronounced "command-let," is a lightweight command used to perform a specific task or operation within the PowerShell environment. Cmdlets follow a consistent naming convention of verb-noun, where the verb describes the action to be performed and the noun describes the target or object on which the action is performed.
 - When working with large event logs, per Microsoft, it's inefficient to send objects down the pipeline to a Where-Object command. The use of the Get-WinEvent cmdlet's FilterHashtable parameter is recommended to filter event logs.
-> Example: This command `Get-WinEvent -LogName Application | Where-Object { $_.ProviderName -Match 'WLMS' }` can be replaced by ```Get-WinEvent -FilterHashtable @{
-  LogName='Application' 
-  ProviderName='WLMS' 
-}```
+> Example: This command `Get-WinEvent -LogName Application | Where-Object { $_.ProviderName -Match 'WLMS' }` can be replaced by `Get-WinEvent -FilterHashtable @{LogName='Application'; ProviderName='WLMS'}`
