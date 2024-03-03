@@ -13,6 +13,14 @@ Event logs record events taking place in the execution of a system to provide an
 [Error, Warning, Information, Success audit, Failure audit]
 ### There are three main ways of accessing these event logs within a Windows system:
 - Event Viewer (GUI-based application)
-- `Wevtutil.exe` (command-line tool)
-- `Get-WinEvent` (PowerShell cmdlet)
-  
+- `Wevtutil.exe` (command-line tool). - use /? to see the options on using the command util.
+- `Get-WinEvent` (PowerShell cmdlet). - replaces the `Get-EventLog` cmdlet. 
+
+### Notes
+- To count how many objects were printed by PowerShell in the terminal, we can use `| measure-object`.
+- A cmdlet, pronounced "command-let," is a lightweight command used to perform a specific task or operation within the PowerShell environment. Cmdlets follow a consistent naming convention of verb-noun, where the verb describes the action to be performed and the noun describes the target or object on which the action is performed.
+- When working with large event logs, per Microsoft, it's inefficient to send objects down the pipeline to a Where-Object command. The use of the Get-WinEvent cmdlet's FilterHashtable parameter is recommended to filter event logs.
+> Example: This command `Get-WinEvent -LogName Application | Where-Object { $_.ProviderName -Match 'WLMS' }` can be replaced by ```Get-WinEvent -FilterHashtable @{
+  LogName='Application' 
+  ProviderName='WLMS' 
+}```
