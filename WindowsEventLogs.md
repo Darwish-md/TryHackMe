@@ -1,6 +1,6 @@
 Event logs record events taking place in the execution of a system to provide an audit trail that can be used to understand the activity of the system and to diagnose problems. 
 
-#### Elements form event logs in Windows systems:
+### Elements form event logs in Windows systems:
 - System Logs: > hardware changes, device drivers, system changes, and other activities related to the device.
 - Security Logs: > logon and logoff activities on a device. 
 - Application Logs: > application errors, events, and warnings.
@@ -12,7 +12,7 @@ Event logs record events taking place in the execution of a system to provide an
 ### Event logs can be classified into:
 [Error, Warning, Information, Success audit, Failure audit]
 ### There are three main ways of accessing these event logs within a Windows system:
-#### Event Viewer (GUI-based application)
-#### Wevtutil.exe (command-line tool)
-#### Get-WinEvent (PowerShell cmdlet)
+- Event Viewer (GUI-based application)
+- `Wevtutil.exe` (command-line tool)
+- `Get-WinEvent` (PowerShell cmdlet)
   
