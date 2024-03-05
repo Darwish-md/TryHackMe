@@ -1,0 +1,1 @@
+Sysmon is a sysinternal tool used to monitor and log events to the Windows Event Logs based on the rules set in the configuration file. these rules are either excluding or including specific conditions and whenever a rule is triggered, an alert is being raised and sent to SIEM or the responsible monitoring agent.
