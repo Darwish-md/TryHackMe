@@ -1,4 +1,5 @@
 Osquery is an open-source agent created by Facebook in 2014. It converts the operating system into a relational database. It allows us to ask questions from the tables using SQL queries.
+- To run OSQuery, from PS `osqueryi`.
 - To get help with the tool, `.help`
 - To list all tables, `.tables`.
 - To list all the tables with the term user in them, we will use `.tables user`.
