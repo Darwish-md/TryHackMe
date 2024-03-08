@@ -13,13 +13,16 @@
 
 #### Hunting Metasploit
 - Hunting for Metasploit using Event ID 3:
-> `<RuleGroup name="" groupRelation="or">
+```
+<RuleGroup name="" groupRelation="or">
 	<NetworkConnect onmatch="include">
 		<DestinationPort condition="is">4444</DestinationPort>
 		<DestinationPort condition="is">5555</DestinationPort>
 	</NetworkConnect>
-</RuleGroup>`
-And events can be found using the filter: `get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"`
+</RuleGroup>
+```
+
+- And events can be found using the filter: `get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"`
 
 
 
