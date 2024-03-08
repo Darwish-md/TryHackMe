@@ -22,10 +22,33 @@
 </RuleGroup>
 ```
 
-- And events can be found using the filter:
+- And events can be queried using the filter:
 ```
 get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"
 ```
 
-
+#### Hunting Mimikatz
+- Could be detcted by looking for files with the name in case it bypassed AV:
+```
+<RuleGroup name="" groupRelation="or">
+	<FileCreate onmatch="include">
+		<TargetFileName condition="contains">mimikatz</TargetFileName>
+	</FileCreate>
+</RuleGroup>
+```
+However, we usually check the advanced techniques like detecting abnormal LSASS behaviour. If LSASS is accessed by a process other than svchost.exe it should be considered suspicious behavior and should be investigated further, so we can trigger an alert whenever any other process is accessing lsass:
+```
+<RuleGroup name="" groupRelation="or">
+	<ProcessAccess onmatch="exclude">
+		<SourceImage condition="image">svchost.exe</SourceImage>
+	</ProcessAccess>
+	<ProcessAccess onmatch="include">
+		<TargetImage condition="image">lsass.exe</TargetImage>
+	</ProcessAccess>
+</RuleGroup>
+```
+- And events can be queried using the filter:
+```
+Get-WinEvent -Path Desktop\Scenarios\Practice\Hunting_Mimikatz.evtx -FilterXPath "*/System/EventID=10 and */EventData/Data[@Name='TargetImage']='C:\Windows\system32\lsass.exe'" | Format-List *
+```
 
