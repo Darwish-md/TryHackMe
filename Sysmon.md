@@ -22,7 +22,7 @@
 </RuleGroup>
 ```
 
-- And events can be found using the filter: `get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"`
+- And events can be found using the filter: ```get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"```
 
 
 
