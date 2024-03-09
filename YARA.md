@@ -36,3 +36,5 @@ A brief explanation of the parameters above:
 - -m is the path to the files you want to generate rules for
 - --excludegood force to exclude all goodware strings (these are strings found in legitimate software and can increase false positives)
 - -o location & name you want to output the Yara rule
+
+After the new rule is created (in the mentioned example, it is file2.yar), we copy the file to the signature-base/yara directory of Loki. Now we have the new rule and can be used with Loki.
