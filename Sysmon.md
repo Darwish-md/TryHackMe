@@ -6,11 +6,12 @@
 
 - To start Sysmon, this command is used `Sysmon.exe -accepteula -i <File_PATH>`.
 
-#### Sysmon Best Practices:
+### Sysmon Best Practices:
 - Exclude > Include
 - Know your environment before implementation
 - CLI gives you further control
 
+### Examples
 #### Hunting Metasploit
 - Hunting for Metasploit using Event ID 3:
 ```
