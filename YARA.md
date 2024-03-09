@@ -38,3 +38,8 @@ A brief explanation of the parameters above:
 - -o location & name you want to output the Yara rule
 
 After the new rule is created (in the mentioned example, it is file2.yar), we copy the file to the signature-base/yara directory of Loki. Now we have the new rule and can be used with Loki.
+
+### Valhalla 
+Valhalla is a database of yara rules where we can conduct searches based on a keyword, tag, ATT&CK technique, sha256, or rule name. 
+
+Check it out [here](https://valhalla.nextron-systems.com/)
