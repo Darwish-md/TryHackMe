@@ -1,0 +1,3 @@
+Information security researcher "fr0gger_" has recently created a handy cheatsheet that breaks down and visualises the elements of a YARA rule: `https://blog.securitybreak.io/security-infographics-9c4d3bd891ef#52a8`
+
+- Knowing how to create custom Yara rules is useful, but luckily you don't have to create many rules from scratch to begin using Yara to search for evil. There are plenty of GitHub (https://github.com/InQuest/awesome-yara?tab=readme-ov-file#rules)  resources and open-source tools (along with commercial products) that can be utilized to leverage Yara in hunt operations and/or incident response engagements. 
