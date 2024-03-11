@@ -11,8 +11,7 @@
 - Know your environment before implementation
 - CLI gives you further control
 
-### Examples
-#### Hunting Metasploit
+### Hunting Metasploit
 - Hunting for Metasploit using Event ID 3:
 ```
 <RuleGroup name="" groupRelation="or">
@@ -28,7 +27,7 @@
 get-WinEvent -Path C:\Users\THM-Analyst\Desktop\Scenarios\Practice\Hunting_Metasploit.evtx -FilterXPath "*/System/EventID=3 and */EventData/Data[@Name='DestinationPort']=4444"
 ```
 
-#### Hunting Mimikatz
+### Hunting Mimikatz
 - Could be detcted by looking for files with the name in case it bypassed AV:
 ```
 <RuleGroup name="" groupRelation="or">
@@ -51,5 +50,27 @@ However, we usually check the advanced techniques like detecting abnormal LSASS 
 - And events can be queried using the filter:
 ```
 Get-WinEvent -Path Desktop\Scenarios\Practice\Hunting_Mimikatz.evtx -FilterXPath "*/System/EventID=10 and */EventData/Data[@Name='TargetImage']='C:\Windows\system32\lsass.exe'" | Format-List *
+```
+
+### Hunting persistence
+There is a multitude of ways for an attacker to gain persistence on a machine like registry modification and startup scripts.
+- Hunting Startup Persistence
+```
+<RuleGroup name="" groupRelation="or">
+	<FileCreate onmatch="include">
+		<TargetFilename name="T1023" condition="contains">\Start Menu</TargetFilename>
+		<TargetFilename name="T1165" condition="contains">\Startup\</TargetFilename>
+	</FileCreate>
+</RuleGroup>
+```
+- Hunting Registry Key Persistence
+```
+<RuleGroup name="" groupRelation="or">
+	<RegistryEvent onmatch="include">
+		<TargetObject name="T1060,RunKey" condition="contains">CurrentVersion\Run</TargetObject>
+		<TargetObject name="T1484" condition="contains">Group Policy\Scripts</TargetObject>
+		<TargetObject name="T1060" condition="contains">CurrentVersion\Windows\Run</TargetObject>
+	</RegistryEvent>
+</RuleGroup>
 ```
 
