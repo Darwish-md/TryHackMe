@@ -9,7 +9,7 @@ Volatility is a tool used in memory forensics to analyze memory dumps of differe
   - win32dd.exe / win64dd.exe
   - Memoryze
   - FastDump
-</br>
+    
   > Most of the tools mentioned above for memory extraction will output a .raw file with some exceptions like Redline that can use its own agent and session structure.
 
 - For virtual machines, gathering a memory file can easily be done by collecting the virtual memory file from the host machine’s drive. This file can change depending on the hypervisor used; listed below are a few of the hypervisor virtual memory files you may encounter:
