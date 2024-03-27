@@ -9,7 +9,7 @@ Volatility is a tool used in memory forensics to analyze memory dumps of differe
   - win32dd.exe / win64dd.exe
   - Memoryze
   - FastDump
-
+</br>
   > Most of the tools mentioned above for memory extraction will output a .raw file with some exceptions like Redline that can use its own agent and session structure.
 
 - For virtual machines, gathering a memory file can easily be done by collecting the virtual memory file from the host machine’s drive. This file can change depending on the hypervisor used; listed below are a few of the hypervisor virtual memory files you may encounter:
@@ -34,10 +34,10 @@ Volatility is a tool used in memory forensics to analyze memory dumps of differe
 
 #### Advanced Memory Forensics
 - When dealing with an advanced adversary, you may encounter malware, most of the time rootkits that will employ very nasty evasion measures that will require you as an analyst to dive into the drivers, mutexes, and hooked functions.
-- hooking and driver manipulation are two types of evasion techniques.
+- hooking and driver manipulation are two types of evasion techniques. </br>
   > Hooking involves intercepting and altering function calls in software. It's used in both legitimate and malicious contexts. It works by intercepting calls before they reach their intended destination, then altering parameters or redirecting the call. There are five methods of hooking used by adversaies: {SSDT Hooks, IRP Hooks, IAT Hooks, EAT Hooks, Inline Hooks}
 ##### EXs of plugins provided by Volatility for such cases
-- `ssdt` plugin will search for hooking and output its results.
+- `ssdt` plugin will search for hooking and output its results. </br>
   > SSDT stands for System Service Descriptor Table; the Windows kernel uses this table to look up system functions. An adversary can hook into this table and modify pointers to point to a location the rootkit controls.
 - `modules` plugin will dump a list of loaded kernel modules; this can be useful in identifying active malware. However, if a malicious file is idly waiting or hidden, this plugin may miss it.
 - `driverscan` plugin will scan for drivers present on the system at the time of extraction. This plugin can help to identify driver files in the kernel that the modules plugin might have missed or were hidden.
