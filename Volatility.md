@@ -41,3 +41,7 @@ Volatility is a tool used in memory forensics to analyze memory dumps of differe
   > SSDT stands for System Service Descriptor Table; the Windows kernel uses this table to look up system functions. An adversary can hook into this table and modify pointers to point to a location the rootkit controls.
 - `modules` plugin will dump a list of loaded kernel modules; this can be useful in identifying active malware. However, if a malicious file is idly waiting or hidden, this plugin may miss it.
 - `driverscan` plugin will scan for drivers present on the system at the time of extraction. This plugin can help to identify driver files in the kernel that the modules plugin might have missed or were hidden.
+- `handles` plugin can be used to get the resources that a process has open, such as files, registry keys, or network connections. we can use it with `| grep <process_id>`.
+- `filescan` plugin can be used to identify all files loaded from the malware working directory.
+### Notes:
+- To get info about a specific process: `vol.py -f <dump> -o /dir/to/store_dump/ windows.memmap.Memmap --pid <suspicious PID> --dump`, then we can analyze the dmp file with `strings`.
