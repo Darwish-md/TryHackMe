@@ -42,4 +42,4 @@ if we only have access to a disk image and we cannot use regedit.exe, then we ne
 - Act as backups of registry hives.
 - Copies of hives are stored in the `C:\Windows\System32\Config\RegBack` directory approximately every ten days.
 
-These two sources complement each other in registry forensics, with transaction logs providing real-time changes and backups offering historical snapshots.
+  These two sources complement each other in registry forensics, with transaction logs providing real-time changes and backups offering historical snapshots.
