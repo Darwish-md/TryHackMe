@@ -76,3 +76,16 @@ Windows introduced jump lists to help users go directly to their recently used f
 We can use the following command to parse Jumplists using JLECmd.exe: `JLECmd.exe -f <path-to-Jumplist-file> --csv <path-to-save-csv>`
 
 Jumplists include information about the applications executed, first time of execution, and last time of execution of the application against an AppID.
+
+### File\Folder knowledge
+#### Shortcut Files
+Windows creates a shortcut file for each file opened either locally or remotely. The shortcut files contain information about the first and last opened times of the file and the path of the opened file, along with some other data and can be found here:
+ - `C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Recent\`
+ - `C:\Users\<username>\AppData\Roaming\Microsoft\Office\Recent\`
+
+We can use Eric Zimmerman's LECmd.exe (Lnk Explorer) to parse Shortcut files: `LECmd.exe -f <path-to-shortcut-files> --csv <path-to-save-csv>`.
+
+Note: The creation date of the shortcut file points to the date/time when the file was first opened. The date/time of modification of the shortcut file points to the last time the file was accessed.
+
+#### IE/Edge History
+IE/Edge browsing history is that it includes files opened in the system as well, whether those files were opened using the browser or not. Hence, a valuable source of information on opened files in a system is the IE/Edge history. It can be found here: `C:\Users\<username>\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat`, and can be viewed with Autopsy.
