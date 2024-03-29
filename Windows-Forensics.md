@@ -103,3 +103,6 @@ Since registry editor only works with live system, and doesn't work with exporte
   - `SYSTEM\CurrentControlSet\Enum\USB`
 - The following registry key tracks the first time the device was connected, the last time it was connected and the last time the device was removed from the system: `SYSTEM\CurrentControlSet\Enum\USBSTOR\Ven_Prod_Version\USBSerial#\Properties\{83da6326-97a6-4088-9453-a19231573b29}\####`.
 - The device name of the connected drive can be found at the following location: `SOFTWARE\Microsoft\Windows Portable Devices\Devices`.
+
+##Summary
+![image](https://github.com/Darwish-md/TryHackMe/assets/72353586/b801df4b-76c8-4cc2-822a-d48ff16d2579)
