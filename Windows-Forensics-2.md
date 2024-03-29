@@ -28,3 +28,20 @@ As the file sizes have grown, especially with higher resolution images and video
 - The exFAT file system supports a cluster size of 4KB to 32MB. It has a maximum file size and a maximum volume size of 128PB (Petabytes).
 - It also reduces some of the overheads of the FAT file system to make it lighter and more efficient.
 - It can have a maximum of 2,796,202 files per directory.
+
+### NTFS (New Technology File System)
+it offers little more in terms of security, reliability, and recovery capabilities. It also has certain limitations when it comes to file and volume sizes. 
+
+#### NTFS Features:
+- ***Journaling***: NTFS incorporates journaling to log metadata changes, aiding system recovery from crashes or data movements. This log, stored in $LOGFILE within the volume's root directory, defines NTFS as a journaling file system.
+- ***Access Controls***: NTFS implements access controls, assigning ownership and permissions for files/directories to individual users.
+- ***Volume Shadow Copies***: This feature tracks file changes, enabling users to restore previous file versions for recovery or system restoration purposes. However, in recent ransomware attacks, perpetrators delete shadow copies to hinder victim data recovery.
+- ***Alternate Data Streams***: ADS permit files to contain multiple data streams within a single file. While browsers like Internet Explorer utilize ADS for identifying internet-downloaded files, malware exploits this feature to conceal code within files for covert operations.
+
+#### Master File Table
+ NTFS file system data is organized in the Master File Table. From a forensics point of view, the following are some of the critical files in the MFT:
+ - $MFT: the first record in the volume. The Volume Boot Record (VBR) points to the cluster where it is located. $MFT stores information about the clusters where all other objects present on the volume are located. This file contains a directory of all the files present on the volume.
+ - $LOGFILE: stores the transactional logging of the file system. It helps maintain the integrity of the file system in the event of a crash.
+ - $UsnJrnl: stands for the Update Sequence Number (USN) Journal. It is present in the $Extend record. It contains information about all the files that were changed in the file system and the reason for the change. It is also called the change journal.
+
+#### MFT Explorer is one of Eric Zimmerman's tools used to explore MFT files.
