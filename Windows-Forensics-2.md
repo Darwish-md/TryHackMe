@@ -89,3 +89,11 @@ Note: The creation date of the shortcut file points to the date/time when the fi
 
 #### IE/Edge History
 IE/Edge browsing history is that it includes files opened in the system as well, whether those files were opened using the browser or not. Hence, a valuable source of information on opened files in a system is the IE/Edge history. It can be found here: `C:\Users\<username>\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat`, and can be viewed with Autopsy.
+
+#### JumbLists 
+Discuessed earlier!!
+
+### External Devices
+When any new device is attached to a system, information related to the setup of that device is stored in the `C:\Windows\inf\setupapi.dev.log`. It contains he device serial number and the first/last times when the device was connected. 
+
+Shortcut files can sometimes provide us with information about connected USB devices. It can provide us with information about the volume name, type, and serial number.
