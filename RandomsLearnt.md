@@ -1,3 +1,4 @@
+- To add credentials for an RDP, we can use this cmnd `cmdkey /generic:TERMSRV/<targetname> /user: "<username>" /pass: "<password>"`, where targetname is the rdp file name that we can find if we open it in notepad.
 ### During Windows Investigation room:
 1. To find the system information, from cmd: `systeminfo`.
 2. To find all user accounts on system, we can use `net user`. To find information about a specific user: `net user <username>`.
