@@ -1,4 +1,6 @@
 - To add credentials for an RDP, we can use this cmnd `cmdkey /generic:TERMSRV/<targetname> /user: "<username>" /pass: "<password>"`, where targetname is the rdp file name that we can find if we open it in notepad.
+- Seclists is an amazing collection of wordlists. it can be installed with `sudo apt install seclists` if using Kali or Parrot. Alternatively, we can download the repository from the repository.
+  
 ### During Windows Investigation room:
 1. To find the system information, from cmd: `systeminfo`.
 2. To find all user accounts on system, we can use `net user`. To find information about a specific user: `net user <username>`.
@@ -8,8 +10,7 @@
 6. "Inetpub" is a directory commonly found on Windows servers. It stands for "Internet Publishing" and serves as the default root directory for IIS websites and contains the web content, configuration files, and other resources related to hosting websites. If any files are uploaded via server's website, it should be there.
 7. The hosts file located at `C:\Windows\System32\drivers\etc\hosts` is a plain text file used by OSs to map hostnames to IP addresses before querying DNS servers. It's commonly used to override DNS mappings or to block access to specific websites by redirecting their domain names to localhost or other IP addresses. If suspecting DNS poisoning, this needs to be checked and usually there we will find the C2 IP, targeted domain, etc..
 8. We should be always checking for new firewall rules, since there connections can be allowed to C2 servers, or specific ports for inbound connections, etc..
-9. Seclists is an amazing collection of wordlists. it can be installed with `sudo apt install seclists` if using Kali or Parrot. Alternatively, we can download the repository from the repository.
-10. 
+
 ### During Attacktive Directory
 - In the beginning, we need to know the open ports, AD domain name which can be obtained with nmap basic flags: `nmap -sV -sC -oN nmap.out 10.10.151.9`.
 - We use `Enum4Linux` to enumerate running services on the server as well as getting info like NetBIOS domain.
