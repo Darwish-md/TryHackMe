@@ -1,5 +1,6 @@
 - To add credentials for an RDP, we can use this cmnd `cmdkey /generic:TERMSRV/<targetname> /user: "<username>" /pass: "<password>"`, where targetname is the rdp file name that we can find if we open it in notepad.
-- Seclists is an amazing collection of wordlists. it can be installed with `sudo apt install seclists` if using Kali or Parrot. Alternatively, we can download the repository from the repository.
+- ***Seclists*** is an amazing collection of wordlists. it can be installed with `sudo apt install seclists` if using Kali or Parrot. Alternatively, we can download the repository from the repository. We also have `rockyou.txt` under directory `usr/share/wordlists` for password cracking. 
+- ***Hydra*** is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more. Command syntax is as following: `hydra -t <Number of parallel connections per target> -l <username> -P <wordlist.txt file path> -vV <Target_IP> <service like ftp, smb, etc>`.
   
 ### During Windows Investigation room:
 1. To find the system information, from cmd: `systeminfo`.
