@@ -18,3 +18,13 @@ Here is the process of sending an email:
   4. The SMTP server of the sender will make a connection to the recipient's SMTP server before relaying the email. If the recipient's server can't be accessed, or is not available- the Email gets put into an SMTP queue.
   5. Then, the recipient's SMTP server will verify the incoming email. It does this by checking if the domain and user name have been recognised. The server will then forward the email to the POP or IMAP server, as shown in the diagram above.
   6. The E-Mail will then show up in the recipient's inbox.
+
+A ***Mail Transfer Agent (MTA)***, or mail relay, is a software that transfers email messages from one computer to another using the Simple Mail Transfer Protocol
+
+#### Enumerating SMTP
+The SMTP service has two internal commands that allow the enumeration of users: 
+- VRFY (confirming the names of valid users)
+and
+- EXPN (which reveals the actual address of user’s aliases and lists of e-mail (mailing lists).
+
+Using these SMTP commands, we can reveal a list of valid users. We can do this manually, over a telnet connection- however Metasploit provides a module called "smtp_enum". Using the module is simple, we provide a list of usernames and the host IP and it returns the valid usernames found. we can then bruteforcing these usernames with Hydra for example to crack the password.
