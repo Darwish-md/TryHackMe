@@ -31,9 +31,6 @@
   - In a Passive FTP connection, the server opens a port and listens (passively) and the client connects to it. 
 - Once we know that FTP port is open, we can try connecting by `ftp <IP>`. sometimes we can login anonymously to ftp server, We can do this using by typing entering "anonymous" as username, and no password when prompted.
 
-#### Hydra
-Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more. Command syntax is as following: `hydra -t <Number of parallel connections per target> -l <username> -P <wordlist.txt file path> -vV <Target_IP> <service like ftp, smb, etc>`.
-
 #### NMAP
 - To look for open ports in the most common 1000 ports: `nmap ip`
 - for all ports: `nmap -p- ip`, for range of ports `nmap -p x-y ip`
