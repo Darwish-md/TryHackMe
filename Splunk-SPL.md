@@ -23,3 +23,9 @@ SPL stands for Search Processing Language.
 - The chart command is used to transform the data into tables or visualizations: `index=windowslogs | chart count by User`
 - The timechart command returns the time series chart covering the field following the function mentioned: `index=windowslogs | timechart count by Image`.
 - 
+
+### General
+- `metadata` is used to retrieve metadata information about sourcetypes from a specified index.
+- `eval` is used to convert formats
+  > This command will return the source types within botsv2 and sort them desc according to total count: `| metadata type=sourcetypes index=botsv2 | eval firstTime=strftime(firstTime,"%Y-%m-%d %H:%M:%S") | eval lastTime=strftime(lastTime,"%Y-%m-%d %H:%M:%S") | eval recentTime=strftime(recentTime,"%Y-%m-%d %H:%M:%S") | sort - totalCount`.
+- To look for http traffic, we can use `sourcetype="stream:HTTP"` and same for emails for example would be `sourcetype="stream:smtp"`. This is usually accompanied by a source IP of a machine we are investigating.
