@@ -102,4 +102,20 @@ We can use Rubeus for AS/REP roasting: `Rubeus.exe asreproast` - This will run t
 
 ![image](https://github.com/Darwish-md/TryHackMe/assets/72353586/66443892-8d25-44e1-b7dd-0c9baa709919)
 
-#### 4. 
+#### 4. Golden/Silver Ticket Attack with Mimikatz
+- The key difference between the two tickets is that a silver ticket is limited to the service that is targeted whereas a golden ticket has access to any Kerberos service.
+- If stealth and staying undetected matter then a silver ticket is probably a better option than a golden ticket however the approach to creating one is the exact same.
+-  A ***KRBTGT*** is the service account for the KDC this is the Key Distribution Center that issues all of the tickets to the clients. If you impersonate this account and create a golden ticket form the KRBTGT you give yourself the ability to create a service ticket for anything you want.
+
+##### Golden/Silver Ticket Attack Overview 
+A Golden/Silver Ticket Attack involves dumping the ticket-granting ticket (TGT) of a user on the domain, preferably a domain admin for a golden ticket or any service/domain admin ticket for a silver ticket. This provides the attacker with the user's SID (security identifier) and NTLM hash. These details are then used in a mimikatz attack to create a TGT that impersonates the targeted service/domain admin account.
+
+#### How?
+In Mimikatz, we can use `lsadump::lsa /inject /name:krbtgt` to get the SID and the NTLM hash. Then `Kerberos::golden /user:Administrator /domain:controller.local /sid:<SID> /krbtgt:<NTLM Hash of krbtgt> /id:<ID>` can be used to create a golden ticket.
+
+#### 5. Kerberos Backdoor w Mimikatz
+The Kerberos backdoor works by implanting a skeleton key that abuses the way that the AS-REQ validates encrypted timestamps. A skeleton key only works using Kerberos RC4 encryption. 
+
+The default hash for a mimikatz skeleton key is 60BA4FCADC466C7A033C178194C03DF6 which makes the password -"mimikatz"
+
+The skeleton key works by abusing the AS-REQ encrypted timestamps, the timestamp is encrypted with the users NT hash. The domain controller then tries to decrypt this timestamp with the users NT hash, once a skeleton key is implanted the domain controller tries to decrypt the timestamp using both the user NT hash and the skeleton key NT hash allowing you access to the domain forest.
