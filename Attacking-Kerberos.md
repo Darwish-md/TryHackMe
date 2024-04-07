@@ -38,9 +38,53 @@ A service ticket contains two portions: the service provided portion and the use
 ![image](https://github.com/Darwish-md/TryHackMe/assets/72353586/189bcb9c-3ade-4481-adf9-18db7ac583e5)
 
 #### To conclude the process (refer to the first pic)
-AS-REQ - 1.) The client requests an Authentication Ticket or Ticket Granting Ticket (TGT).
-AS-REP - 2.) The Key Distribution Center verifies the client and sends back an encrypted TGT.
-TGS-REQ - 3.) The client sends the encrypted TGT to the Ticket Granting Server (TGS) with the Service Principal Name (SPN) of the service the client wants to access.
-TGS-REP - 4.) The Key Distribution Center (KDC) verifies the TGT of the user and that the user has access to the service, then sends a valid session key for the service to the client.
-AP-REQ - 5.) The client requests the service and sends the valid session key to prove the user has access.
-AP-REP - 6.) The service grants access
+- AS-REQ - 1.) The client requests an Authentication Ticket or Ticket Granting Ticket (TGT).
+- AS-REP - 2.) The Key Distribution Center verifies the client and sends back an encrypted TGT.
+- TGS-REQ - 3.) The client sends the encrypted TGT to the Ticket Granting Server (TGS) with the Service Principal Name (SPN) of the service the client wants to access.
+- TGS-REP - 4.) The Key Distribution Center (KDC) verifies the TGT of the user and that the user has access to the service, then sends a valid session key for the service to the client.
+- AP-REQ - 5.) The client requests the service and sends the valid session key to prove the user has access.
+- AP-REP - 6.) The service grants access
+
+### Different Attaks
+#### Enumerating with Kerbrute
+`./kerbrute_linux_amd64 userenum --dc <DOMAIN_CONTROLLER_IP> -d <DOMAIN_NAME> <WORDLIST_FILE>` will brute force user accounts from a domain controller using a supplied wordlist. 
+
+Ex: `./kerbrute userenum --dc CONTROLLER.local -d CONTROLLER.local User.txt` (we added the IP of domain name to the DNS in `/etc/hosts`).
+
+#### Rubeus
+Rubeus has a wide variety of attacks and features that allow it to be a very versatile tool for attacking Kerberos. Just some of the many tools and attacks include overpass the hash, ticket requests and renewals, ticket management, ticket extraction, harvesting, pass the ticket, AS-REP Roasting, and Kerberoasting.
+
+Exs:
+1. `Rubeus.exe harvest /interval:30` - This command tells Rubeus to harvest for TGTs every 30 seconds.
+2. `Rubeus.exe brute /password:Password1 /noticket` - This will take a given password and "spray" it against all found users then give the .kirbi TGT for that user.
+
+#### 1. Kerberoasting
+Kerberoasting allows a user to request a service ticket for any service with a registered SPN then use that ticket to crack the service password.
+
+##### What can be done with a service account?
+- Exfiltrate Data or Collect Loot:
+  - If the service account is a domain admin, you gain extensive control similar to a golden/silver ticket attack. This allows you to gather loot such as dumping the NTDS.dit, which contains hashed passwords of all users in the Active Directory domain.
+  - If the service account is not a domain admin, you can still use it to log into other systems, pivot, or escalate privileges.
+- Use Cracked Password for Further Attacks:
+  - The cracked password can be used to spray against other service and domain admin accounts. Many companies may reuse the same or similar passwords for these accounts, allowing for further compromise.
+
+##### How?
+1. Using ***Rubeus***:
+`Rubeus.exe kerberoast` - This will dump the Kerberos hash of any kerberoastable users. Then we use hashcat.
+
+2. Using ***Impacket***:
+`sudo python3 GetUserSPNs.py controller.local/Machine1:Password1 -dc-ip 10.10.79.92 -request` - This will dump the Kerberos hash for all kerberoastable accounts it can find on the target domain just like Rubeus does; however, this does not have to be on the targets machine and can be done remotely.
+
+##### Kerberoasting Mitigation
+- Strong Service Passwords.
+- Don't Make Service Accounts Domain Admins - Service accounts don't need to be domain admins.
+
+#### 2. AS/REP Roasting
+AS-REP Roasting, similar to Kerberoasting, extracts krbasrep5 hashes of user accounts with Kerberos pre-authentication disabled. Unlike Kerberoasting, these users don't need to be service accounts; any user with pre-authentication disabled can be targeted. 
+
+##### Normally
+When pre-authentication is enabled, a user's hash encrypts a timestamp during authentication, which the domain controller decrypts to verify the hash's freshness and prevent replay attacks. 
+##### what's different?
+With pre-authentication disabled, requesting authentication data for any user returns an encrypted TGT without verifying their identity, making it susceptible to offline cracking.
+
+We can use Rubeus for AS/REP roasting: `Rubeus.exe asreproast` - This will run the AS-REP roast command [1] looking for vulnerable users and [2] then dump found vulnerable user hashes. [google](https://google.com)
