@@ -86,5 +86,20 @@ AS-REP Roasting, similar to Kerberoasting, extracts krbasrep5 hashes of user acc
 When pre-authentication is enabled, a user's hash encrypts a timestamp during authentication, which the domain controller decrypts to verify the hash's freshness and prevent replay attacks. 
 ##### what's different?
 With pre-authentication disabled, requesting authentication data for any user returns an encrypted TGT without verifying their identity, making it susceptible to offline cracking.
+##### How can we do it?
+We can use Rubeus for AS/REP roasting: `Rubeus.exe asreproast` - This will run the AS-REP roast command [1] looking for vulnerable users and [2] then dump found vulnerable user hashes.
 
-We can use Rubeus for AS/REP roasting: `Rubeus.exe asreproast` - This will run the AS-REP roast command [1] looking for vulnerable users and [2] then dump found vulnerable user hashes. [google](https://google.com)
+##### AS-REP Roasting Mitigations
+- Have a strong password policy.
+- Don't turn off Kerberos Pre-Authentication unless it's necessary there's almost no other way to completely mitigate this attack other than keeping Pre-Authentication on.
+  
+#### 3. Pass the ticket
+- The Local Security Authority Subsystem Service (LSASS) is a memory process that stores credentials on an active directory server and can store Kerberos ticket along with other credential types to act as the gatekeeper and accept or reject the credentials provided. 
+- Pass the ticket works by dumping the TGT from the LSASS memory of the machine.
+- When you dump the tickets with mimikatz it will give us a .kirbi ticket which can be used to gain domain admin if a domain admin ticket is in the LSASS memory.
+- Mimikatz can be simply used to dump tickets in memory, with the right privileges.
+- domain admins SHOULD NOT log onto anything EXCEPT the domain controller - This is something so simple however a lot of domain admins still log onto low-level computers leaving tickets around that we can use to attack and move laterally with.
+
+![image](https://github.com/Darwish-md/TryHackMe/assets/72353586/66443892-8d25-44e1-b7dd-0c9baa709919)
+
+#### 4. 
