@@ -70,37 +70,78 @@ The adversary is trying to get into your network.
 The adversary is trying to run malicious code.
 
 ##### Examples
-1. 
+1. ***Scheduled Task/Job***: Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.
+
+2. ***Serverless execution***: It refers to a cloud computing model where the cloud provider dynamically manages the allocation and scaling of resources needed to execute code. adversaries may use serverless functions to execute malicious code, such as crypto-mining malware.
+
+3. ***Command and Scripting Interpreter***: Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. macOS and Linux distributions include some flavor of Unix Shell while Windows installations include the Windows Command Shell and PowerShell.
+
 #### 5. Persistence	
 The adversary is trying to maintain their foothold.
 
 ##### Examples
+1. ***Create Account***
+
+2. ***Boot or Logon Autostart Execution*** (Registry Keys and Startup Folders, or modifying any DLLs or scripts that are run on startup)
+
+3. ***Hijack Execution Flow***: Adversaries may execute their own malicious payloads by hijacking the way operating systems run programs. This includes manipulating:
+   + How the operating system locates programs to be executed.
+   + How the operating system locates libraries to be used by a program can also be intercepted.
+   + Locations where the operating system looks for programs/resources, such as file directories and in the case of Windows the Registry, could also be poisoned to include malicious payloads.
 
 #### 6. Privilege Escalation
-The adversary is trying to gain higher-level permissions.
-
+The adversary is trying to gain higher-level permissions. remember abou zero-logon that gives us the whole DC credentials.
+   
 ##### Examples
+1. ***Escape to Host***: In principle, containerized resources should provide a clear separation of application functionality and be isolated from the host environment. Adversaries may break out of a container to gain access to the underlying host. This can allow an adversary access to other containerized resources from the host level or to the host itself.
 
+2. ***Access Token Manipulation***: An adversary can use built-in Windows API functions to copy access tokens from existing processes; this is known as token stealing. These tokens can then be applied to an existing process that needs higher privilege.
+
+3. ***Account Manipulation***: Account manipulation is any action that preserves or modifies adversary access to a compromised account, such as modifying credentials or permission groups. For example adding created accounts to local admin groups.
+   
 #### 7. Defense Evasion
 The adversary is trying to avoid being detected.
 
 ##### Examples
+1. ***Process Injection***: Adversaries may inject code into processes in order to evade process-based defenses as well as possibly elevate privileges.
+   + It allow access to the process's memory, system/network resources, and possibly elevated privileges.
+   + It evades detection from security products since the execution is masked under a legitimate process.
 
+2. ***Masquerading***: Adversaries may attempt to manipulate features of their artifacts to make them appear legitimate or benign. Masquerading occurs when the name or location of an object, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation. This can be like installing malicious tool which has a name of svchost.exe for example.
+
+3. ***Rootkit***:  It is a type of malicious software designed to gain unauthorized access to a computer system while hiding its presence and activities from users and security mechanisms. It is called a "rootkit" because it typically targets the "root" or core of a system, aiming to obtain elevated privileges and control over the system.
+
+4. ***Deobfuscate/Decode Files or Information***
+   
 #### 8. Credential Access
 The adversary is trying to steal account names and passwords.
 
 ##### Examples
+1. ***Bruteforce***
+   
+2. ***Adversary-in-the-Middle***: Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle. For example, adversaries may manipulate victim DNS settings to enable other malicious activities such as preventing/redirecting users from accessing legitimate sites and/or pushing additional malware.
+
+3. ***Input Capture***: Adversaries may use methods of capturing user input to obtain credentials or collect information like using a keylogger.
+
+4. ***Steal Web Session Cookie or Kerberos Ticket*** 
+
+5. ***OS Credential Dumping***: Adversaries may attempt to dump credentials to obtain account login and credential material, normally in the form of a hash or a clear text password. This can happen using tools like Mimikatz.
 
 #### 9. Discovery
 The adversary is trying to figure out your environment.
 
 ##### Examples
+1. ***Browser Information Discovery***: Adversaries may enumerate information about browsers to learn more about compromised environments. Data saved by browsers (such as bookmarks, accounts, and browsing history) may reveal a variety of personal information about users (e.g., banking sites, relationships/interests, social media, etc.) as well as details about internal network resources such as servers, tools/dashboards, or other related infrastructure.
+
+2. ***Process Discovery***: Adversaries may attempt to get information about running processes on a system. Information obtained could be used to gain an understanding of common software/applications running on systems within the network.
+
+3. ***Log Enumeration***: Adversaries may enumerate system and service logs to find useful data. These logs may highlight various types of valuable insights for an adversary, such as user authentication records (Account Discovery), security or vulnerable software (Software Discovery), or hosts within a compromised network.
 
 #### 10. Lateral Movement
 The adversary is trying to move through your environment.
 
 ##### Examples
-
+1. 
 #### 11. Collection
 The adversary is trying to gather data of interest to their goal.
 
