@@ -30,26 +30,47 @@ In Enterprise version, we have 14 categories. Each category contains the techniq
 The adversary is trying to gather information they can use to plan future operations.
 
 ##### Examples
-1. Spearphishing: a type of phishing attack that targets specific individuals or organizations in order to steal personal information that can lead to have access to an account, help attackers in the later procedures, etc
+1. ***Spearphishing***: a type of phishing attack that targets specific individuals or organizations in order to steal personal information that can lead to have access to an account, help attackers in the later procedures, etc
 
-2. Search open websites/domains : Adversaries may search freely available websites and/or domains for information about victims that can be used during targeting. Information about victims may be available in various online sites, such as social media, new sites. it contains 3 sub-techniques which are [social media, search engines (google dorks for example), code repositories].
+2. ***Search open websites/domains*** : Adversaries may search freely available websites and/or domains for information about victims that can be used during targeting. Information about victims may be available in various online sites, such as social media, new sites. it contains 3 sub-techniques which are [social media, search engines (google dorks for example), code repositories].
 
-3. Adversaries may search and gather information about victims from closed sources
+3. ***Search Closed Sources***: Adversaries may search and gather information about victims from closed sources such as dark web or cybercrime blackmarkets. They can also search private data from threat intelligence vendors. Although sensitive details such as customer names may be redacted, this information may contain trends regarding breaches such as target industries, attribution claims, and successful TTPs/countermeasures.
+   
 #### 2. Resource Development
 The adversary is trying to establish resources they can use to support operations.
 
 ##### Examples
+1. ***Acquire Access***: Adversaries may purchase or otherwise acquire an existing access to a target system or network. A variety of online services and initial access broker networks are available to sell access to previously compromised systems.
 
+2. ***Obtain Capabilities***: Adversaries may buy and/or steal capabilities that can be used during targeting. Rather than developing their own capabilities in-house, adversaries may purchase, freely download, or steal them. Activities may include the acquisition of malware, software (including licenses), exploits, certificates, and information relating to vulnerabilities. sub-techniques include: [Malware, Tool, Exploits, Vulnerabilities]
+
+3. ***Stage Capabilities***: Adversaries may upload, install, or otherwise set up capabilities that can be used during targeting. This can include:
+  + Staging web resources necessary to conduct Drive-by Compromise when a user browses to a site.
+  + Staging web resources for a link target to be used with spearphishing.
+  + Uploading malware or tools to a location accessible to a victim network to enable Ingress tool transfer.
+    
 #### 3. Initial Access	
 The adversary is trying to get into your network.
 
 ##### Examples
+1. ***Content Injection***: Adversaries can gain access to victims by injecting malicious content into online network traffic, bypassing the need for victims to visit compromised websites. It can happen through content injection into DNS, HTTP, and SMB replies to targeted hosts that redirect them to download malicious files.
 
+2. ***Drive-by Compromise***: Adversaries exploit vulnerabilities in web browsers, often by injecting malicious code into legitimate websites or modifying script files served from public cloud storage. When users visit these compromised sites, their browsers may be exploited, enabling attackers to gain unauthorized access to their systems (cross-site scripting). Besides direct exploitation, adversaries might also use compromised websites for other malicious activities, such as acquiring Application Access Tokens, posing a significant threat to users' cybersecurity during routine web browsing. 
+
+3. ***Supply Chain Compromise***: Examples include:
+  + Manipulation of development tools
+  + Manipulation of a development environment
+  + Manipulation of source code repositories (public or private)
+  + Manipulation of source code in open-source dependencies
+  + Manipulation of software update
+    
+4. ***Replication through Removable Media***: Adversaries may move onto systems, possibly those on disconnected or air-gapped networks, by copying malware to removable media and taking advantage of Autorun features when the media is inserted into a system and executes.
+   
 #### 4. Execution	
 The adversary is trying to run malicious code.
 
 ##### Examples
-
+1. 
 #### 5. Persistence	
 The adversary is trying to maintain their foothold.
 
