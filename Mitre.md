@@ -141,27 +141,53 @@ The adversary is trying to figure out your environment.
 The adversary is trying to move through your environment.
 
 ##### Examples
-1. 
+1. ***Internal Spearphishing***: After they already have access to accounts or systems within the environment, adversaries may use internal spearphishing to gain access to additional information or compromise other users within the same organization.
+
+2. ***Lateral Tool Transfer***: Adversaries may transfer tools or other files between systems in a compromised environment. Once brought into the victim environment, files may then be copied from one system to another. Files can also be transferred using native or otherwise present tools on the victim system, such as scp, rsync, curl, sftp, and ftp.
+
+3. ***Software Deployment Tools***: A software deployment tool is a system or application used to automate the process of distributing and installing software onto target systems or environments. Adversaries may gain access to and use centralized software suites installed within an enterprise to execute commands and move laterally through the network.
+
 #### 11. Collection
 The adversary is trying to gather data of interest to their goal.
 
 ##### Examples
+1. ***Email Collection***: Adversaries may target user email to collect sensitive information. Emails may contain sensitive data, including trade secrets or personal information, that can prove valuable to adversaries.
 
+2. ***Adversary-in-the-Middle***: This can include DHCP spoofing, ARP cache poisoning.
+
+3. ***Screen/Input/Audio Capture***
+
+4. ***Browser Session Hijacking***: when an adversary injects software into a browser that allows them to inherit cookies, HTTP sessions, and SSL client certificates of a user. Then, With these permissions, an adversary could potentially browse to any resource on an intranet, such as Sharepoint or webmail, that is accessible through the browser and which the browser has sufficient permissions.
+   
 #### 12. Command and Control
 The adversary is trying to communicate with compromised systems to control them.
 
 ##### Examples
+1. ***Data Encoding***: Adversaries may encode data to make the content of command and control traffic more difficult to detect.
+
+2. ***Proxy***: Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure. 
+
+3. ***Remote Access Software***: An adversary may use legitimate desktop support and remote access software to establish an interactive command and control channel to target systems within networks. These services, such as VNC, Team Viewer, AnyDesk, ScreenConnect, LogMein, AmmyyAdmin, and other remote monitoring and management (RMM) tools, are commonly used as legitimate technical support software.
 
 #### 13. Exfiltration
 The adversary is trying to steal data.
 
 ##### Examples
+1. ***Automated Exfiltration***: Adversaries may exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.
+
+2. ***Exfiltration Over Alternative Protocol***: Adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel. Alternate protocols include FTP, SMTP, HTTP/S, DNS, SMB, or any other network protocol not being used as the main command and control channel.
+
+3. ***Exfiltration Over Web Service***: Adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. Popular Web services acting as an exfiltration mechanism may give a significant amount of cover due to the likelihood that hosts within a network are already communicating with them prior to compromise. Examples include Google Drive, Cloudflare services, etc.
 
 #### 14. Impact
 The adversary is trying to manipulate, interrupt, or destroy your systems and data.
 
 ##### Examples
+1. ***Data Destruction***: Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. D
 
+2. ***Network Denial of Service***: Adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users. Network DoS can be performed by exhausting the network bandwidth services rely on. Example resources include specific websites, email services, DNS, and web-based applications.
+
+3. ***Data Manipulation***: Adversaries may insert, delete, or manipulate data in order to influence external outcomes or hide activity, thus threatening the integrity of the data.[1] By manipulating data, adversaries may attempt to affect a business process, organizational understanding, or decision making.
 
 ## CAR
 The Cyber Analytics Repository (CAR) is a collection of cyber threat detection analytics. These analytics aid security professional to detect TTPs given in ATT&CK by providing the pseudocode as well as specific tools like (e.g., Splunk, EQL) 
