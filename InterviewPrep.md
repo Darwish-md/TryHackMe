@@ -23,16 +23,6 @@ Often referred to as serverless cloud or serverless execution, is a cloud comput
 # Captive portal
 presents a Web page when users connect to a Wi-Fi network; sometimes a user account is required (often users must agree to the terms of use before connecting to the Internet). 
 
-# Side Notes: 
-- The HTTPOnly flag ensures that client Javascript cannot access the cookie which can help mitigate cross-site scripting (XSS) attacks.
-- The maximum proposed speed for 5G is 10 Gbps.
-- Hashing algorithms don't typically use keys.
-- Elliptic Curve Cryptography (ECC) uses small keys to achieve strong crypto strength.
-- Geotagging adds geographic metadata (such as GPS coordinates) to files, such as photos taken with a smart phone.
-- Geofencing uses geographical location to control app access.
-- Side loading refers to installing mobile device apps directly from installation files, without using an app store.
-- A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
-- 
 # IaaS/SaaS/SECaaS/PaaS
 - Infrastructure as a Service (IaaS) includes storage, network and virtual machines. IaaS virtual machine software patching is the responsibility of the cloud tenant.
 - Software as a Service (SaaS) refers to end-user productivity software running in the cloud.
@@ -44,88 +34,77 @@ It sits between users and cloud services to enforce organizational security poli
 
 # Air gapping 
 It is a strategy used to protect sensitive or critical computer systems and networks by physically isolating them from unsecured networks or the internet. In an air-gapped environment, there is no direct or networked connection between the isolated system (or systems) and external networks, which helps reduce the risk of cyberattacks and data breaches. 
- --------------------------
- A native API, short for Native Application Programming Interface, is a set of software functions and protocols provided by an operating system or platform to enable developers to create applications that are tightly integrated with and optimized for that specific system. 
- ------------------------
- WMI is an administration feature that provides a uniform environment to access Windows system components. The WMI service enables both local and remote access, though the latter is facilitated by Remote Services such as Distributed Component Object Model (DCOM) and Windows Remote Management (WinRM)
- -----------------------
- Account manipulation may consist of any action that preserves adversary access to a compromised account, such as modifying credentials or permission groups. These actions could also include account activity designed to subvert security policies, such as performing iterative password updates to bypass password duration policies and preserve the life of compromised credentials.
- ----------------------
- Windows Background Intelligent Transfer Service (BITS) is a low-bandwidth, asynchronous file transfer mechanism exposed through Component Object Model (COM).[1][2] BITS is commonly used by updaters, messengers, and other applications preferred to operate in the background (using available idle bandwidth) without interrupting other networked applications. 
- ------------------------
-  The Windows Time service (W32Time) enables time synchronization across and within domains. W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients.
-  -------------------------
-  The Local Security Authority (LSA) is the main component responsible for local security policy and user authentication. The LSA includes multiple dynamic link libraries (DLLs) associated with various other security functions, all of which run in the context of the LSA Subsystem Service (LSASS) lsass.exe process.
-  ---------------------------
-  spoolsv.exe is a Windows system process responsible for managing print jobs and printer queues. It stands for "Spooler SubSystem App." This process handles the printing tasks on a Windows computer, ensuring that print jobs are sent to the appropriate printer and managed in an orderly fashion.
-  --------------------
-  XDG entries are configurations or metadata entries used in Linux and Unix-like operating systems to define and manage various aspects of the user environment, such as application menus, file associations, and desktop integration. XDG stands for "X Desktop Group," and it aims to provide standardized settings and conventions for desktop environments.
-  ----------------------
-  Active Setup is a Windows mechanism that is used to execute programs when a user logs in. 
-  ---------------------
-  Registry keys are elements within the Windows Registry database, which is stored in binary format on disk. They are organized in a hierarchical structure, similar to a tree, with keys and subkeys
-  -----------------------
-  Launch Agent and Launch Daemon are two mechanisms in macOS that control and manage the execution of processes and tasks on the system. They are part of the launchd system, which is responsible for launching and managing various services and processes at boot and during the system's runtime.
-  --------------------------
-  * Privilege escalation refers to the act of an attacker gaining higher-level or unauthorized access to a computer system, application, or network. It involves elevating one's privileges or permissions beyond what should be allowed, effectively granting the attacker more control and access than they should have.
-  
-  Focus: Privilege escalation primarily concerns the elevation of an attacker's access or permissions within a single system or application.
-  
-  * Lateral movement 
-  
-  Focus: Lateral movement focuses on the progression of an attack beyond the initial point of compromise, spreading through a network or across multiple systems.
-  ---------------------
-  trap command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common keyboard interrupts like ctrl+c and ctrl+d.
-  
-  trap 'command list' signals where "command list" will be executed when "signals" are received.
-  ----------------------------
-  Tainted binaries refer to executable files or software programs that have been compromised or modified in a way that makes them untrustworthy or potentially malicious. 
-  -------------------------
-  AppCert DLLs, also known as Application Compatibility DLLs, are dynamic-link libraries (DLLs) in the Windows operating system that play a role in ensuring compatibility for applications. These DLLs are used to implement compatibility fixes for specific applications that may not function correctly on newer versions of Windows.
-  ------------------------
-  user32.dll is a critical system file in Windows that enables graphical user interfaces (GUIs) and user interactions in applications. It manages windows, handles user input, and provides functions for creating GUI elements like buttons and menus. It's essential for the functionality of Windows-based software.
-  -----------------------
-  Application shimming is a technique used in Microsoft Windows operating systems to address compatibility issues between applications and the operating system. It allows legacy or incompatible applications to run on a newer version of Windows without modification to the application's source code.
-  ---------------------
-  A PowerShell profile (profile.ps1) is a script that runs when PowerShell starts and can be used as a logon script to customize user environments.
-  -----------------------
-Emond is a Launch Daemon that accepts events from various services, runs them through a simple rules engine, and takes action. The emond binary at /sbin/emond will load any rules from the /etc/emond.d/rules/ directory and take action once an explicitly defined event takes place.
 
-The rule files are in the plist format and define the name, event type, and action to take. Some examples of event types include system startup and user authentication.
-------------------------
-The KernelCallbackTable, also known as the System Service Dispatch Table or SSDT (System Service Descriptor Table), is a data structure in the Windows operating system's kernel that contains function pointers to various system services (or functions). These services are essential for the functioning of the operating system, and they are called by applications and drivers when they need to perform privileged operations, such as file I/O or memory management.
---------------------------
-Horizontal brute force is similar to password spraying, where an attacker tries a few common passwords against many different user accounts simultaneously, hoping to gain unauthorized access by exploiting weak or commonly used passwords. Vertical brute force, on the other hand, focuses on trying multiple password combinations for a single user account, making it a more targeted approach.
--------------------------
+# WMI 
+Windows Management Instrumentation is an administration feature that provides a uniform environment to access Windows system components. The WMI service enables both local and remote access, though the latter is facilitated by Remote Services such as Distributed Component Object Model (DCOM) and Windows Remote Management (WinRM).
+
+# BITS
+Windows Background Intelligent Transfer Service is a low-bandwidth, asynchronous file transfer mechanism exposed through Component Object Model (COM). BITS is commonly used by updaters, messengers, and other applications preferred to operate in the background (using available idle bandwidth) without interrupting other networked applications. 
+
+# W32Time
+The Windows Time service enables time synchronization across and within domains. W32Time time providers are responsible for retrieving time stamps from hardware/network resources and outputting these values to other network clients.
+
+# LSA 
+The Local Security Authority (LSA) is the main component responsible for local security policy and user authentication. The LSA includes multiple dynamic link libraries (DLLs) associated with various other security functions, all of which run in the context of the LSA Subsystem Service (LSASS) lsass.exe process.
+
+# XDG 
+XDG entries are configurations or metadata entries used in Linux and Unix-like operating systems to define and manage various aspects of the user environment, such as application menus, file associations, and desktop integration. XDG stands for "X Desktop Group," and it aims to provide standardized settings and conventions for desktop environments.
+
+# Launch Agent and Launch Daemon
+In macOS, Launch Agents and Launch Daemons are mechanisms for automatically starting and managing processes:
+- ***Launch Agent***: These are user-specific and are associated with a particular user session. They run in the background and perform tasks on behalf of the user, such as launching applications or performing maintenance tasks. Launch Agents are stored in the `~/Library/LaunchAgents` directory.
+- ***Launch Daemon***: These are system-wide daemons that run independently of user sessions. They manage system-level services and processes, such as network services or system maintenance tasks. Launch Daemons are stored in the `/Library/LaunchDaemons` directory.
+  
+# AppCert DLLs
+Also known as Application Compatibility DLLs, are dynamic-link libraries (DLLs) in the Windows operating system that play a role in ensuring compatibility for applications. These DLLs are used to implement compatibility fixes for specific applications that may not function correctly on newer versions of Windows.
+
+# Application shimming
+It is a technique used in Microsoft Windows operating systems to address compatibility issues between applications and the operating system. It allows legacy or incompatible applications to run on a newer version of Windows without modification to the application's source code.
+
+# Emond 
+Emond is a Launch Daemon that accepts events from various services, runs them through a simple rules engine, and takes action. The emond binary at `/sbin/emond` will load any rules from the `/etc/emond.d/rules/` directory and take action once an explicitly defined event takes place. The rule files are in the plist format and define the name, event type, and action to take. Some examples of event types include system startup and user authentication.
+
+# KernelCallbackTable
+Also known as the System Service Dispatch Table or SSDT (System Service Descriptor Table), is a data structure in the Windows operating system's kernel that contains function pointers to various system services (or functions). These services are essential for the functioning of the operating system, and they are called by applications and drivers when they need to perform privileged operations, such as file I/O or memory management.
+
+# Horizontal/Vertical Bruteforce
+- Horizontal: is similar to password spraying, where an attacker tries a few common passwords against many different user accounts simultaneously, hoping to gain unauthorized access by exploiting weak or commonly used passwords.
+- Vertical brute force: focuses on trying multiple password combinations for a single user account, making it a more targeted approach.
+
+# DOS/DDOS
 A denial-of-service (DoS) attack floods a server with traffic, making a website or resource unavailable. A distributed denial-of-service (DDoS) attack is a DoS attack that uses multiple computers or machines (maybe controlled by one machine through bots or whatever) to flood a targeted resource.
---------------------
-Process hollowing is a security exploit in which an attacker removes code in an executable file and replaces it with malicious code. 
-------------------------
-A network security group (NSG) in Azure is the way to activate a rule or access control list (ACL), which will allow or deny network traffic to your virtual machine instances in a virtual network. 
+
+# Process Hollowing
+Process hollowing is a technique used by malware to inject malicious code into a legitimate process while maintaining the appearance of normal behavior. Here's how it works:
+1. Create Suspended Process: The malware creates a new instance of a legitimate process (e.g., explorer.exe) in a suspended state. This process serves as the target for the injection.
+2. Replace Memory Contents: The malware unmaps the memory of the legitimate process and replaces it with its malicious code. This effectively "hollows out" the legitimate process, leaving only the basic process structure intact.
+3. Resume Process Execution: Once the malicious code is injected, the malware resumes execution of the legitimate process. From the outside, the process appears to be running normally, but it is actually executing the injected malicious code.
+   
+# NSG
+A network security group in Azure is the way to activate a rule or access control list (ACL), which will allow or deny network traffic to your virtual machine instances in a virtual network. 
+
 Unlike Azure Firewall, which monitors all traffic for workloads, NSG is commonly deployed for individual vNets, subnets, and network interfaces for virtual machines to refine traffic. It does so by activating a rule (allow or deny) or Access Control List (ACL), which allows or denies traffic to Azure resources.
-----------------------
-Fileless malware is malicious code that works directly within a computer's memory instead of the hard drive. It uses legitimate, otherwise benevolent programs to compromise your computer instead of malicious files. (Injecting code into an existing legitimate software). 
-These attacks can be detected only with memory based forensic techniques
----------------------
-Qualys is a lead in scanning services and vulnerability assessment of any device that has an IP.
-------------------------------
-Website defacement is an attack on a website that changes the visual appearance of a website or a web page.
--------------------------------
-Cyber threat intelligence (CTI) consists of information related to cyber threats and threat actors. It incorporates various sources to help identify and mitigate harmful events and potential attacks occurring in cyberspace.
+
+# Fileless malware
+It is malicious code that works directly within a computer's memory instead of the hard drive. It uses legitimate programs to compromise your computer instead of malicious files (Injecting code into an existing legitimate software). These attacks can be detected only with memory based forensic techniques
+
+# Cyber threat intelligence (CTI)
+It consists of information related to cyber threats and threat actors. It incorporates various sources to help identify and mitigate harmful events and potential attacks occurring in cyberspace.
 - Most utilized form of CTI is threat indicators IoCs.
 - Threat indicators are data that associates observations URLs, file hashes or IP addresses.
------------------------------------
-- A drive-by download is a type of cyberattack where malicious software is downloaded and installed on a user's device without their knowledge or consent. 
-- Drive-by downloads exploit vulnerabilities in web browsers, plugins, or operating systems, allowing attackers to deliver malware, such as viruses, ransomware, or Trojans, without the user's interaction.
-- These attacks are particularly dangerous because they can happen without any action from the user, apart from simply visiting a compromised website.
----------------------------
-"domain joined" refers to a computer that is connected to a central server in a Windows domain network. 
----------------------------
-A QNAP NAS is a powerful device that allows you to store and share files and access them from anywhere in the world. You can use it for work, school, or at home. A QNAP NAS device can also be accessed by multiple users simultaneously, making it ideal for small businesses or teams working on large projects.
-------------------------------
-Present Threats:
 
-[1] Emotet:
+# Drive-by download/compromise
+- Drive-by Compromise: adversaries exploit vulnerabilities in web browsers, often by injecting malicious code into legitimate websites or modifying script files served from public cloud storage. When users visit these compromised sites, their browsers may be exploited, enabling attackers to gain unauthorized access to their systems. Besides direct exploitation, adversaries might also use compromised websites for other malicious activities, such as acquiring Application Access Tokens, posing a significant threat to users' cybersecurity during routine web browsing.
+
+- Drive-by download: is a type of cyberattack where malicious software is downloaded and installed on a user's device without their knowledge or consent. Drive-by downloads exploit vulnerabilities in web browsers, plugins, or operating systems, allowing attackers to deliver malware, such as viruses, ransomware, or Trojans, without the user's interaction.
+
+- These attacks are particularly dangerous because they can happen without any action from the user, apart from simply visiting a compromised website.
+  
+# A QNAP NAS 
+It is a powerful device that allows you to store and share files and access them from anywhere in the world. You can use it for work, school, or at home. A QNAP NAS device can also be accessed by multiple users simultaneously, making it ideal for small businesses or teams working on large projects.
+
+# Present Threats:
+## Emotet:
 - Emotet was originally designed as a banking malware that attempted to sneak onto your computer and steal sensitive and private information.
 - Emotet has gone through a few iterations. Early versions arrived as a malicious JavaScript file. Later versions evolved to use macro-enabled documents to retrieve the virus payload from command and control (C&C) servers run by the attackers. 
 -  Emotet knows if it’s running inside a virtual machine (VM) and will lay dormant if it detects a sandbox environment, which is a tool cybersecurity researchers use to observe malware within a safe, controlled space.
@@ -136,15 +115,14 @@ Present Threats:
 - How to protect? - Don't download or click suspicious entities. - update endpoints - educate yourself and employess.
 - It was discovered in 2014
 
-
-[2] SocGholish:
+## SocGholish:
 - it is an attack framework that leverages drive-by downloads masquerading as legitimate software (browser) update like "AutoUpdater.js"
 - it has been out there since 2018
 - SocGholish is delivered via injected JavaScript on compromised websites.
 - SocGholish, while relatively easy to detect, is difficult to stop.
 - Threat Research has observed SocGholish being leveraged in email campaigns with injections on sites that meet one of two criteria:
-	1- Extensive marketing and legitimate email advertising campaigns.
-    2- Strong SEO (Search Engine Optimization) and page rank causing aggregation and dissemination by Google Alerts and other similar services.
+  1- Extensive marketing and legitimate email advertising campaigns.
+  2- Strong SEO (Search Engine Optimization) and page rank causing aggregation and dissemination by Google Alerts and other similar services.
 - so Basically, it doesn't mainly spread via email, but more via aggregate service (Google alerts), marketing services.
 - SocGholish has 3 stages:
 	1. Initial Compromise:
@@ -157,7 +135,7 @@ Upon meeting specific eligibility criteria, users are prompted to download and e
 In the third stage, the malicious JavaScript payload invokes Windows Management Instrumentation (WMI) calls, often using native Windows script hosts like WScript or CScript. These calls profile the system, gathering data such as domain trusts, usernames, and computer names. This information is then exfiltrated to attacker-controlled infrastructure. This reconnaissance phase allows the attackers to assess the system further and avoid deploying their ultimate payload in environments where analysis might be conducted.
 
 
-[3] USB Worms:
+## USB Worms:
 - USB worms are a type of malicious software that spreads through removable USB drives and other portable storage devices. 
 - These worms exploit the autorun feature in Windows operating systems, allowing them to automatically execute and infect a computer when the infected USB drive is connected to it. Once the worm gains access to the system, it can replicate itself onto the computer's hard drive, other connected USB drives, and even network drives if available.
 - USB worms can carry a variety of payloads, including viruses, Trojans, or other types of malware. 
@@ -204,7 +182,6 @@ e. Insecure Direct Object References (IDOR):
 f. DDoS Amplification:
     Open Endpoints: Certain endpoints might be abused for DDoS amplification attacks, where small requests trigger large responses, leading to a bandwidth-fueled DDoS attack.
 
-[2] spoolsv.exe
 -------------------------------
 Malware static and dynamic analysis:
 
@@ -332,71 +309,110 @@ An Intrusion Set is a grouped set of adversarial behaviors and resources with co
 ---------------------------------------
 STIX (Structured Threat Information eXpression) is a standardized XML programming language for conveying data about cybersecurity threats in a common language that can be easily understood by humans and security technologies. Designed for broad use, there are several core use cases for STIX.
 ------------------------
+
 Developed by GCHQ (Government Communications Headquarters), the intelligence and security agency of the United Kingdom, CyberChef provides a vast array of functions for processing data, making it a valuable tool in various cybersecurity and digital forensics tasks.
-------------------------
+
 Kerberos delegation is a delegation setting that allows applications to request end-user access credentials to access resources on behalf of the originating user.
---------------------------
+
+# Registry Hive
 A hive is a logical group of keys, subkeys, and values in the registry that has a set of supporting files loaded into memory when the operating system is started or a user logs in.
 
-Each time a new user logs on to a computer, a new hive is created for that user with a separate file for the user profile. This is called the user profile hive. A user's hive contains specific registry information pertaining to the user's application settings, desktop, environment, network connections, and printers.
+For example, each time a new user logs on to a computer, a new hive is created for that user with a separate file for the user profile. This is called the user profile hive. A user's hive contains specific registry information pertaining to the user's application settings, desktop, environment, network connections, and printers.
 
-COM Hijacking is a exploit method that requires change in the Registry to replace a reference to a legitimate system component with a false one which, when invoked, will execute a malicious code.
----------------------------
-DLL Redirection:
- The SysWOW64 directory on 64-bit versions of Windows contains 32-bit system files, while the System32 directory contains 64-bit system files. If a 32-bit application running under the SysWOW64 directory attempts to load a DLL that does not exist in the SysWOW64 directory but exists in the System32 directory, Windows may redirect the request to the System32 directory. This redirection could result in C:\Windows\SysWOW64\rundll32.exe spawning C:\Windows\System32\rundll32.exe as part of normal system behavior.
---------------------------------
-Threat Model: A risk assessment that models organizational strengths and weaknesses
--------------------------------
-Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
+# COM Hijacking
+COM hijacking is a technique used by attackers to take advantage of the Component Object Model (COM) infrastructure in Windows systems. Here's a brief overview:
 
-It is painfully slow using the attack box for me as well if using -p- but -A runs really quick on its own. I'm in the tail end of network services as well.
+### COM Infrastructure 
+COM is a Microsoft technology that enables inter-process communication and allows software components to interact with each other. It is widely used in Windows for various purposes, including automation, inter-process communication, and object-oriented programming.
 
-You can use -T5 to increase the speed of it.
+### Hijacking Technique
+In COM hijacking, attackers exploit insecure configurations or vulnerabilities in the Windows registry or file system to redirect the loading of COM objects. By manipulating registry settings or placing malicious DLL files in specific locations, attackers can trick legitimate applications into loading and executing their malicious code instead of the intended COM objects.
 
-nmap has a --min-rate flag where you can specify the minimum amount of packets to be sent per second. I find that 3-5,000pps is a pretty safe number, but it can always be adjusted as needed
- 
-nmap -sC -sV -A -T5 
--F -Pn -n
---packet-trace
---------------------------------
- "dropper attack", where additional malicious programs are downloaded onto the host.
- -------------------------------
- Portable executable PE:
+Execution of Malicious Code: Once the COM object is hijacked, the attacker's malicious code is executed within the context of the legitimate application or process, allowing them to carry out various malicious activities, such as stealing sensitive information, executing arbitrary commands, or compromising the system's security.
+
+# DLL Redirection:
+The SysWOW64 directory on 64-bit versions of Windows contains 32-bit system files, while the System32 directory contains 64-bit system files. If a 32-bit application running under the SysWOW64 directory attempts to load a DLL that does not exist in the SysWOW64 directory but exists in the System32 directory, Windows may redirect the request to the System32 directory. This redirection could result in C:\Windows\SysWOW64\rundll32.exe spawning C:\Windows\System32\rundll32.exe as part of normal system behavior.
+
+# Dropper attack
+is a cyberattack where malware is delivered onto a victim's system through a malicious program called a dropper. The dropper, disguised as a legitimate file or application, is delivered via email, phishing links, or compromised websites. Once executed, the dropper installs and executes the malware payload, allowing attackers to carry out malicious activities.
+
+# Portable executable PE:
  A file format for executables, object code, DLLs, FON Font files, and others used in 32-bit and 64-bit versions of Windows operating systems. The PE format is a data structure that encapsulates the information necessary for the Windows OS to manage the wrapped executable code.
- ------------------------------
- Entropy: 
-  The measure of randomness of data in a file. Entropy is very useful in identifying compressed and packed malware. Packed or compressed files usually have a high entropy.
------------------------------
+
+# software packing
 Legitimate software developers use packing to reduce the size of their applications and to ultimately protect their work from being stolen. It is, however, a double-edged sword, malware authors reap the benefits of packing to make the reverse engineering and detection of the code hard to impossible.
 
 Packed files have a few characteristics that may indicate whether or not they are packed:
 - Packed files will have a high entropy!
 - There are very few "Imports", packed files may only have "GetProcAddress" and "LoadLibrary".
 - The executable may have sections named after certain packers such as UPX.
+- When an executable is packed, it must unpack itself before any code can execute. Because of this, packers change the entry point from the original location to what's called the "Unpacking Stub".
 
-When an executable is packed, it must unpack itself before any code can execute. Because of this, packers change the entry point from the original location to what's called the "Unpacking Stub".
--------------------------------
-A memory dump 
- is a file containing all the information that was stored in RAM prior to a system failure that can be used to diagnose the cause of the crash.
- 
- ------------------------------
- Domain squatters register domain names with the intent to profit from reselling them at a higher price.
+# Homograph attacks 
+They involve creating web addresses that visually resemble legitimate ones by using characters from different scripts, aiming to deceive users into visiting malicious sites. For instance, the English word "apple" might be represented as "аррӏе.com" where the first and last characters are Cyrillic characters that visually resemble the Latin letters "a" and "e". 
 
-Homograph attacks involve creating web addresses that visually resemble legitimate ones by using characters from different scripts, aiming to deceive users into visiting malicious sites.
--------------------
-Sudo !!
-------------------------------
-Stateful vs Stateless Firewalls
+# Stateful vs Stateless Firewalls
+- A stateful firewall keeps track of the state of active connections, allowing it to make decisions based on the context of the traffic. It can discern between legitimate traffic and unauthorized access by analyzing the state of connections.
+- On the other hand, a stateless firewall filters traffic based solely on predetermined criteria such as source and destination addresses, ports, and protocols. It doesn't maintain information about the state of connections, so each packet is evaluated in isolation without considering the context of the traffic flow.
 
-A stateful firewall keeps track of the state of active connections, allowing it to make decisions based on the context of the traffic. It can discern between legitimate traffic and unauthorized access by analyzing the state of connections.
+# Side Notes: 
+- The HTTPOnly flag ensures that client Javascript cannot access the cookie which can help mitigate cross-site scripting (XSS) attacks.
+- The maximum proposed speed for 5G is 10 Gbps.
+- Hashing algorithms don't typically use keys.
+- Elliptic Curve Cryptography (ECC) uses small keys to achieve strong crypto strength.
+- Geotagging adds geographic metadata (such as GPS coordinates) to files, such as photos taken with a smart phone.
+- Geofencing uses geographical location to control app access.
+- Side loading refers to installing mobile device apps directly from installation files, without using an app store.
+- A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+  
+-  A native API, short for Native Application Programming Interface, is a set of software functions and protocols provided by an operating system or platform to enable developers to create applications that are tightly integrated with and optimized for that specific system.
+  
+- Account manipulation may consist of any action that preserves adversary access to a compromised account, such as modifying credentials or permission groups. These actions could also include account activity designed to subvert security policies, such as performing iterative password updates to bypass password duration policies and preserve the life of compromised credentials.
 
-On the other hand, a stateless firewall filters traffic based solely on predetermined criteria such as source and destination addresses, ports, and protocols. It doesn't maintain information about the state of connections, so each packet is evaluated in isolation without considering the context of the traffic flow.
---------------------------
-In a Drive-by Compromise,
- adversaries exploit vulnerabilities in web browsers, often by injecting malicious code into legitimate websites or modifying script files served from public cloud storage. When users visit these compromised sites, their browsers may be exploited, enabling attackers to gain unauthorized access to their systems. Besides direct exploitation, adversaries might also use compromised websites for other malicious activities, such as acquiring Application Access Tokens, posing a significant threat to users' cybersecurity during routine web browsing.
- --------------------------
+- Active Setup is a feature in the Windows operating system that allows administrators to run specific commands or scripts when a user logs into the system for the first time. It's commonly used for tasks such as configuring user profiles, installing software components, or performing one-time setup actions. Active Setup ensures that these tasks are executed only once per user, typically during user login.
+
+- Registry keys are elements within the Windows Registry database, which is stored in binary format on disk. They are organized in a hierarchical structure, similar to a tree, with keys and subkeys.
+
+- Trap command allows programs and shells to specify commands that will be executed upon receiving interrupt signals. A common situation is a script allowing for graceful termination and handling of common keyboard interrupts like ctrl+c and ctrl+d.
+
+- Tainted binaries refer to executable files or software programs that have been compromised or modified in a way that makes them untrustworthy or potentially malicious.
+
+- user32.dll is a critical system file in Windows that enables graphical user interfaces (GUIs) and user interactions in applications. It manages windows, handles user input, and provides functions for creating GUI elements like buttons and menus. It's essential for the functionality of Windows-based software.
+
+- A PowerShell profile (profile.ps1) is a script that runs when PowerShell starts and can be used as a logon script to customize user environments.
+
+- Website defacement is an attack on a website that changes the visual appearance of a website or a web page.
+
+- domain joined refers to a computer that is connected to a central server in a Windows domain network. 
+
+- Domain squatters register domain names with the intent to profit from reselling them at a higher price. It involves registering domain names that closely resemble popular brands with the hope of capitalizing on the traffic or brand recognition associated with those names.
+
+- A memory dump is a file containing all the information that was stored in RAM prior to a system failure that can be used to diagnose the cause of the crash.
+
+- Entropy is the measure of randomness of data in a file. Entropy is very useful in identifying compressed and packed malware. Packed or compressed files usually have a high entropy.
+
+- Threat Model: A risk assessment that models organizational strengths and weaknesses.
+
+# Windows Processes
+1. 
+
+2. Spoolsv
+spoolsv.exe is a Windows system process responsible for managing print jobs and printer queues. It stands for "Spooler SubSystem App." This process handles the printing tasks on a Windows computer, ensuring that print jobs are sent to the appropriate printer and managed in an orderly fashion.
+
+
+
+
  RAT
 
  Assesssment questions
 
  position tech reqs
+ Sudo !!
+ 
+Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
+It is painfully slow using the attack box for me as well if using -p- but -A runs really quick on its own. I'm in the tail end of network services as well.
+You can use -T5 to increase the speed of it.
+nmap has a --min-rate flag where you can specify the minimum amount of packets to be sent per second. I find that 3-5,000pps is a pretty safe number, but it can always be adjusted as needed
+nmap -sC -sV -A -T5 
+-F -Pn -n
+--packet-trace
