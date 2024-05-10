@@ -1,46 +1,49 @@
+# NAT/PAT/Proxy
+## NAT/PAT
+NAT and PAT are primarily used for managing the routing of traffic between a private network (often with private IP addresses) and the public internet. They help conserve public IP addresses and allow multiple devices within the private network to share a single public IP address. NAT/PAT is typically implemented at the network router or gateway.
 
-- NAT/PAT: NAT and PAT are primarily used for managing the routing of traffic between a private network (often with private IP addresses) and the public internet. They help conserve public IP addresses and allow multiple devices within the private network to share a single public IP address. NAT/PAT is typically implemented at the network router or gateway.
+## Proxy 
+- A proxy is an intermediary server that acts as a bridge between a user's device and the internet, allowing the user to access online resources indirectly.
 
 - Reverse Proxy: A reverse proxy, on the other hand, is deployed to improve security, load balancing, and application delivery. It sits between clients (e.g., web browsers) and backend servers (e.g., web application servers). The reverse proxy forwards client requests to the appropriate backend server and can provide features like SSL termination, content caching, and security filtering.
 
-=> In a typical setup, the NAT/PAT functionality is often handled by the network infrastructure, such as a router or firewall, while the reverse proxy server is placed in the DMZ (Demilitarized Zone) or a specific network segment to manage incoming traffic to web applications or services.
----------------------------
-Serverless computing, often referred to as serverless cloud or serverless execution, is a cloud computing model where developers can build and run applications without the need to manage the underlying infrastructure, servers, or hardware. In this model, cloud providers automatically manage server provisioning, scaling, and resource allocation, allowing developers to focus solely on writing code for their applications. 
+- Forward proxy sits between the user and the internet, forwarding requests from the user to the internet and returning responses. 
 
-Here's how they can work together:
+- In a typical setup, the NAT/PAT functionality is often handled by the network infrastructure, such as a router or firewall, while the reverse proxy server is placed in the DMZ (Demilitarized Zone) or a specific network segment to manage incoming traffic to web applications or services.
 
-- NAT/PAT ensures that incoming traffic from the internet reaches the correct internal network location by managing IP addresses and ports.
-- The reverse proxy server can further route incoming HTTP or HTTPS traffic to the appropriate backend servers based on URL paths, hostnames, or other criteria. It can also provide security features like firewall rules and DDoS protection.
-------------------------------
-load balancing algorithms:
-Round robin load balancing sends each client app request to the next backend server. Incorrect Answers: Weighted load balancing uses a configured relative weight value for each backend server to determine how much traffic each server gets. Active/passive is a load balancing redundancy configuration where a standby server is not active until the active server fails. Least connections send client app requests to the backend server that is currently the least busy.
----------------------------
-You need to force user authentication and time-based restrictions for internal client devices connecting out to the Internet. You also need to ensure client device IP addresses are not exposed to the Internet. What should you implement? Forward Proxy server
----------------------------
- Captive portals present a Web page when users connect to a Wi-Fi network; sometimes a user account is required (often users must agree to the terms of use before connecting to the Internet). 
- -----------------------
- The HTTPOnly flag ensures that client Javascript cannot access the cookie which can help mitigate cross-site scripting (XSS) attacks. Incorrect Answers: The Samesite attribute helps mitigate cross-site request forgery (CSRF) attacks. The Secure attribute requires HTTPS connectivity. The Domain attribute controls the target host to which the cookie will be sent.
- -----------------------
- Infrastructure as a Service (IaaS) includes storage, network and virtual machines. IaaS virtual machine software patching is the responsibility of the cloud tenant. Incorrect Answers: Software as a Service (SaaS) refers to end-user productivity software running in the cloud, Security as a Service (SECaaS) refers to cloud security services, and Platform as a Service (PaaS) refers to database and software development platforms, all of which do not place the responsibility of virtual machine patching on the cloud tenant.
- -----------------------
- A Cloud Access Security Broker (CASB) sits between users and cloud services to enforce organizational security policies. Incorrect Answers: Cloud Service Providers (CSPs) host cloud services. Service Level Agreements (SLAs) guarantee cloud service uptime. Infrastructure as a Service (IaaS) includes storage, network and virtual machines. IaaS virtual machine software patching is the responsibility of the cloud tenant.
- ---------------------
- Programmable Logic Controllers (PLCs) are used extensively in manufacturing and various industries such as oil refining, electricity and water treatment. Incorrect Answers: Service Level Agreements (SLAs) guarantee uptime for services such as those offered in the cloud. An Industrial Control System (ICS) refers to a collection of computerized solution used for industrial process control. A Hardware Security Module (HSM) is a tamper-resistant device used for cryptographic operations and the storage of cryptographic keys.
- ------------------------
- The maximum proposed speed for 5G is 10 Gbps.
- -------------------------
- Elliptic Curve Cryptography (ECC) uses small keys to achieve strong crypto strength. Incorrect Answers: RSA keys are larger than ECC keys. MD5 and SHA256 do not use keys; they are hashing algorithms.
- --------------------------
- Sideloading refers to installing mobile device apps directly from installation files, without using an app store. Incorrect Answers: Geotagging adds geographic metadata (such as GPS coordinates) to files, such as photos taken with a smart phone. Geofencing uses geographical location to control app access. Registering refers to linking a mobile device to a centralized Mobile Device Management (MDM) system.
- -----------------------------
- Steganography is a technique used to hide files within other files; it is a form of obfuscation. Incorrect Answers: Digital signatures are created with the sender’s private key and are used by the message recipient to ensure the message is authentic and has not been tampered with. Hashing feeds data into a 1-way algorithm which results in a fixed-length unique value called a “hash”. Encryption is used to scramble data; the correct decryption key is needed to reverse the process thus revealing the original data.
- -----------------------
- A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
- -----------------------
- Important websites and apps:
- https://www.shodan.io/ => scan database to reveal information of IPs and open ports, web techs, vulnerabilities etc
- --------------------------
- Air gapping is a strategy used to protect sensitive or critical computer systems and networks by physically isolating them from unsecured networks or the internet. In an air-gapped environment, there is no direct or networked connection between the isolated system (or systems) and external networks, which helps reduce the risk of cyberattacks and data breaches. 
+# Serverless computing
+Often referred to as serverless cloud or serverless execution, is a cloud computing model where developers can build and run applications without the need to manage the underlying infrastructure, servers, or hardware. In this model, cloud providers automatically manage server provisioning, scaling, and resource allocation, allowing developers to focus solely on writing code for their applications. 
+
+# Load Balancing Algorithms:
+- Round robin load balancing sends each client app request to the next backend server.
+- Weighted load balancing uses a configured relative weight value for each backend server to determine how much traffic each server gets.
+- Active/passive is a load balancing redundancy configuration where a standby server is not active until the active server fails.
+- Least connections send client app requests to the backend server that is currently the least busy.
+
+# Captive portal
+presents a Web page when users connect to a Wi-Fi network; sometimes a user account is required (often users must agree to the terms of use before connecting to the Internet). 
+
+# Side Notes: 
+- The HTTPOnly flag ensures that client Javascript cannot access the cookie which can help mitigate cross-site scripting (XSS) attacks.
+- The maximum proposed speed for 5G is 10 Gbps.
+- Hashing algorithms don't typically use keys.
+- Elliptic Curve Cryptography (ECC) uses small keys to achieve strong crypto strength.
+- Geotagging adds geographic metadata (such as GPS coordinates) to files, such as photos taken with a smart phone.
+- Geofencing uses geographical location to control app access.
+- Side loading refers to installing mobile device apps directly from installation files, without using an app store.
+- A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
+- 
+# IaaS/SaaS/SECaaS/PaaS
+- Infrastructure as a Service (IaaS) includes storage, network and virtual machines. IaaS virtual machine software patching is the responsibility of the cloud tenant.
+- Software as a Service (SaaS) refers to end-user productivity software running in the cloud.
+- Security as a Service (SECaaS) refers to cloud security services.
+- Platform as a Service (PaaS) refers to database and software development platforms, all of which do not place the responsibility of virtual machine patching on the cloud tenant.
+
+# Cloud Access Security Broker (CASB) 
+It sits between users and cloud services to enforce organizational security policies. 
+
+# Air gapping 
+It is a strategy used to protect sensitive or critical computer systems and networks by physically isolating them from unsecured networks or the internet. In an air-gapped environment, there is no direct or networked connection between the isolated system (or systems) and external networks, which helps reduce the risk of cyberattacks and data breaches. 
  --------------------------
  A native API, short for Native Application Programming Interface, is a set of software functions and protocols provided by an operating system or platform to enable developers to create applications that are tightly integrated with and optimized for that specific system. 
  ------------------------
