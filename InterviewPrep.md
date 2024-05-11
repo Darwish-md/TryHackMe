@@ -422,6 +422,7 @@ ip ranges
 
 common ports
 
+diamond model
 credential injection attempt 
 
  position tech reqs:
@@ -434,8 +435,6 @@ regex
 mitre capec
 NIST
 CIF
-
-
  
  Sudo !!
  
