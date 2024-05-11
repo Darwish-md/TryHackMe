@@ -1,14 +1,15 @@
 # Windows Processes
-1. w3wp.exe
-- w3wp.exe is a process associated with Microsoft Internet Information Services (IIS), which is a web server software for Windows Server systems. 
-- When a user accesses a website hosted on a server running IIS, the w3wp.exe process is responsible for handling the web application requests. Each IIS application pool runs in its own w3wp.exe process. This isolation helps in maintaining the stability and security of the web server. If a particular web application experiences issues, it won't affect other applications because they are running in separate processes.
+### w3wp.exe
+w3wp.exe is a process associated with Microsoft Internet Information Services (IIS), which is a web server software for Windows Server systems.
+
+When a user accesses a website hosted on a server running IIS, the w3wp.exe process is responsible for handling the web application requests. Each IIS application pool runs in its own w3wp.exe process. This isolation helps in maintaining the stability and security of the web server. If a particular web application experiences issues, it won't affect other applications because they are running in separate processes.
 
 Understanding w3wp.exe:
-- Process Name: w3wp.exe stands for Windows Web Worker Process. It's a user-mode process that runs web applications in IIS (Internet Information Services) on Windows Server operating systems.
-- Application Pool Isolation: In IIS, web applications are grouped into application pools. Each application pool runs in its own w3wp.exe process. This isolation ensures that if one application encounters issues (e.g., memory leaks or crashes), it won't directly affect other applications running on the same server.
-- Role: The w3wp.exe process handles incoming HTTP requests, processes ASP.NET pages, manages sessions, and ensures the proper execution of web applications hosted on the server.
+  - Process Name: w3wp.exe stands for Windows Web Worker Process. It's a user-mode process that runs web applications in IIS (Internet Information Services) on Windows Server operating systems.
+  - Application Pool Isolation: In IIS, web applications are grouped into application pools. Each application pool runs in its own w3wp.exe process. This isolation ensures that if one application encounters issues (e.g., memory leaks or crashes), it won't directly affect other applications running on the same server.
+  - Role: The w3wp.exe process handles incoming HTTP requests, processes ASP.NET pages, manages sessions, and ensures the proper execution of web applications hosted on the server.
 
-2. Spoolsv
+### Spoolsv
 spoolsv.exe is a Windows system process responsible for managing print jobs and printer queues. It stands for "Spooler SubSystem App." This process handles the printing tasks on a Windows computer, ensuring that print jobs are sent to the appropriate printer and managed in an orderly fashion.
 
 # Present Threats:
@@ -400,6 +401,7 @@ They involve creating web addresses that visually resemble legitimate ones by us
  - IPv6 Unique Local Addresses (ULA): fc00::/7 range
 
 # Common Ports
+TCP Ports:
 ```
 21 - FTP (File Transfer Protocol)
 22 - SSH (Secure Shell)
@@ -424,6 +426,7 @@ They involve creating web addresses that visually resemble legitimate ones by us
 8080 - HTTP Alternate (commonly used as a proxy server port)
 ```
 UDP Ports:
+```
 53 - DNS (Domain Name System)
 67 - DHCP (Dynamic Host Configuration Protocol)
 68 - DHCP Client
@@ -439,6 +442,7 @@ UDP Ports:
 500 - IKE (Internet Key Exchange)
 4500 - IKE-NAT-T (IKE NAT Traversal)
 514 - Syslog (System Logging Protocol)
+```
 
 hashcat powershellempire, metasploit mimikatz 
 
