@@ -438,30 +438,20 @@ UDP Ports:
 1900 - SSDP (Simple Service Discovery Protocol)
 514 - Syslog (System Logging Protocol)
 1434 - MS-SQL Monitor
-161 - SNMP (Simple Network Management Protocol)
 500 - IKE (Internet Key Exchange)
 4500 - IKE-NAT-T (IKE NAT Traversal)
 514 - Syslog (System Logging Protocol)
 ```
 
+# HIPs/HIDs
+HIPs (Host-based Intrusion Prevention Systems) and HIDs (Host-based Intrusion Detection Systems) are cybersecurity technologies designed to protect individual computer systems (hosts) from unauthorized access, malicious activities, and security breaches. 
+
 hashcat powershellempire, metasploit mimikatz 
-
-diamond model
-credential injection attempt 
-
- position tech reqs:
-actor groups - threat actors and their associated ttps
-osi layers
-query http logs 
-hids/hips
-linux tools(grep, cut, sort)
+linux tools(grep, cut, sort) Sudo !!
 regex
-mitre capec
-NIST
-CIF
- 
- Sudo !!
- 
+sentinel
+
+
 Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
 It is painfully slow using the attack box for me as well if using -p- but -A runs really quick on its own. I'm in the tail end of network services as well.
 You can use -T5 to increase the speed of it.
