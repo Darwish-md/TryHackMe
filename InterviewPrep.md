@@ -93,6 +93,12 @@ It consists of information related to cyber threats and threat actors. It incorp
 - Most utilized form of CTI is threat indicators IoCs.
 - Threat indicators are data that associates observations URLs, file hashes or IP addresses.
 
+# Rootkit 
+is a type of malicious software designed to gain unauthorized access to a computer system while hiding its presence and activities from users and security mechanisms. It is called a "rootkit" because it typically targets the "root" or core of a system, aiming to obtain elevated privileges and control over the system.
+
+# RAT
+A Remote Access Trojan (RAT) is a type of malware that enables attackers to remotely control infected computers or devices. After infecting a system, the RAT establishes a connection with the attacker's command-and-control server, allowing them to execute commands, steal data, and conduct various malicious activities.
+
 # Drive-by download/compromise
 - Drive-by Compromise: adversaries exploit vulnerabilities in web browsers, often by injecting malicious code into legitimate websites or modifying script files served from public cloud storage. When users visit these compromised sites, their browsers may be exploited, enabling attackers to gain unauthorized access to their systems. Besides direct exploitation, adversaries might also use compromised websites for other malicious activities, such as acquiring Application Access Tokens, posing a significant threat to users' cybersecurity during routine web browsing.
 
@@ -148,11 +154,10 @@ EXAMPLE: Raspberry Robin
 - Raspberry Robin’s LNK file points to cmd.exe to launch the Windows Installer service msiexec.exe and install a malicious payload hosted on compromised QNAP network attached storage (NAS) devices.
 - Raspberry Robin gains persistence by adding itself to the RunOnce key in the CurrentUser registry hive of the user who executed the initial malware.
 - In Windows, the autorun of USB drives is disabled by default. However, many organizations have widely enabled it through legacy Group Policy changes.
----------------------------------
-WannaCry Ransomeware:
+
+## WannaCry Ransomeware
 this nasty worm was spread via an operation that hunts down vulnerable public facing SMB ports and then uses the alleged NSA-leaked EternalBlue exploit to get on the network and then the (also NSA alleged) DoublePulsar exploit to establish persistence and allow for the installation of the WannaCry Ransomware.
-----------------------------
-Windows processes:
+
 [1] w3wp.exe
 - w3wp.exe is a process associated with Microsoft Internet Information Services (IIS), which is a web server software for Windows Server systems. 
 - When a user accesses a website hosted on a server running IIS, the w3wp.exe process is responsible for handling the web application requests. Each IIS application pool runs in its own w3wp.exe process. This isolation helps in maintaining the stability and security of the web server. If a particular web application experiences issues, it won't affect other applications because they are running in separate processes.
@@ -235,9 +240,7 @@ Persistence, when talking about technique T1547.001, is the modification of spec
 the "Autostart catalog" typically refers to specific locations in the Windows Registry and filesystem where information about programs that are configured to start automatically with the operating system is stored. 
 
 Registry Locations:
-
-    HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run:
-    Programs listed here run automatically when a specific user logs in.
+1. `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run`: Programs listed here run automatically when a specific user logs in.
 
     HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run:
     Programs listed here run automatically when any user logs in.
@@ -291,28 +294,35 @@ Stages:
 - The main executable is not malicious itself and can be downloaded from 3CX's website as part of an installation procedure or an update. The 3CXDesktopApp.exe executable, however, sideloads a malicious dynamic link library (DLL) called ffmpeg.dll.
 - The ffmpeg.dll in turn is used to extract an encrypted payload from d3dcompiler_47.dll and execute it. The malware then downloads icon files hosted on GitHub that contain Base64 encoded strings appended to the end of the images.
 ------------------------------------
-A threat campaign is a coordinated series of malicious activities orchestrated by threat actors with specific objectives. These objectives could include stealing sensitive data, disrupting operations, causing financial losses, or gaining unauthorized access to systems. Threat campaigns are typically well-organized, targeted, and often involve multiple attack vectors.
+# Threat campaign
+It is a coordinated series of malicious activities orchestrated by threat actors with specific objectives. These objectives could include stealing sensitive data, disrupting operations, causing financial losses, or gaining unauthorized access to systems. Threat campaigns are typically well-organized, targeted, and often involve multiple attack vectors.
 
-IN SHORT:
-an individual or group involved in malicious cyber activity is called a Threat Actor. A set of activity (Incidents) carried out by Threat Actors using specific techniques (TTP) [tactics, techniques, and procedures] for some particular purpose is called a Campaign.
+### IN SHORT:
+An individual or group involved in malicious cyber activity is called a Threat Actor. A set of activity (Incidents) carried out by Threat Actors using specific techniques (TTP) [tactics, techniques, and procedures] for some particular purpose is called a Campaign.
 
-Characteristics of threat campaign:
+### Characteristics of threat campaign:
+
 1. Organized Effort: Threat campaigns are not random attacks. They involve careful planning, organization, and coordination among threat actors. Multiple individuals or groups might be involved, each specializing in different aspects of the attack.
+
 2. Specific Objectives: Threat campaigns have clear goals. These objectives could vary, such as stealing intellectual property, conducting espionage, launching DDoS (Distributed Denial of Service) attacks, or disrupting critical infrastructure.
+
 3. Persistence: Threat campaigns are ongoing and persistent. Attackers continuously adapt their tactics, techniques, and procedures (TTPs) to evade detection, maintain access, and achieve their goals over an extended period.
+
 4. Targeted Victims: Threat campaigns often target specific individuals, organizations, industries, or regions. Attackers conduct thorough reconnaissance to identify vulnerable targets that align with their objectives.
+
 5. Multifaceted Attacks: Threat campaigns employ multiple attack vectors and techniques. These can include phishing emails, malware infections, social engineering, zero-day exploits, supply chain attacks, and more. The combination of tactics makes them harder to detect and defend against.
+
 6. Advanced Tools: Threat actors often use sophisticated tools and malware, including custom-designed software, to exploit vulnerabilities and gain unauthorized access to systems. These tools are continually updated and customized for specific targets.
+
 7. Evasion Techniques: Threat campaigns employ evasion techniques to bypass security measures. This includes polymorphic malware, encryption, anti-analysis methods, and anti-forensic techniques to make it difficult for cybersecurity professionals to analyze and detect their activities.
---------------------------------------
-An Intrusion Set is a grouped set of adversarial behaviors and resources with common properties that is believed to be orchestrated by a single organization.
----------------------------------------
-STIX (Structured Threat Information eXpression) is a standardized XML programming language for conveying data about cybersecurity threats in a common language that can be easily understood by humans and security technologies. Designed for broad use, there are several core use cases for STIX.
-------------------------
 
-Developed by GCHQ (Government Communications Headquarters), the intelligence and security agency of the United Kingdom, CyberChef provides a vast array of functions for processing data, making it a valuable tool in various cybersecurity and digital forensics tasks.
+# STIX
+Structured Threat Information eXpression is a standardized XML programming language for conveying data about cybersecurity threats in a common language that can be easily understood by humans and security technologies. Designed for broad use, there are several core use cases for STIX.
 
-Kerberos delegation is a delegation setting that allows applications to request end-user access credentials to access resources on behalf of the originating user.
+# Kerberos delegation
+Kerberos delegation is a feature in the Kerberos authentication protocol that allows a service to impersonate a user and access other network resources on behalf of that user. 
+
+When the user accesses a service that supports delegation, the service can request a service ticket on behalf of the user for another service (referred to as the target service) using the TGT.
 
 # Registry Hive
 A hive is a logical group of keys, subkeys, and values in the registry that has a set of supporting files loaded into memory when the operating system is started or a user logs in.
@@ -393,6 +403,8 @@ They involve creating web addresses that visually resemble legitimate ones by us
 
 - Threat Model: A risk assessment that models organizational strengths and weaknesses.
 
+- An Intrusion Set is a grouped set of adversarial behaviors and resources with common properties that is believed to be orchestrated by a single organization.
+
 # Windows Processes
 1. 
 
@@ -400,13 +412,20 @@ They involve creating web addresses that visually resemble legitimate ones by us
 spoolsv.exe is a Windows system process responsible for managing print jobs and printer queues. It stands for "Spooler SubSystem App." This process handles the printing tasks on a Windows computer, ensuring that print jobs are sent to the appropriate printer and managed in an orderly fashion.
 
 
+latest owasp
 
+arp spoofing 
 
- RAT
+hashcat powershellempire, metasploit mimikatz 
 
- Assesssment questions
+ip ranges
+
+common ports
+
+credential injection attempt 
 
  position tech reqs
+ 
  Sudo !!
  
 Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
