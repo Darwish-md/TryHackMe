@@ -424,7 +424,18 @@ common ports
 
 credential injection attempt 
 
- position tech reqs
+ position tech reqs:
+actor groups - threat actors and their associated ttps
+osi layers
+query http logs 
+hids/hips
+linux tools(grep, cut, sort)
+regex
+mitre capec
+NIST
+CIF
+
+
  
  Sudo !!
  
