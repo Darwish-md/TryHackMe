@@ -11,6 +11,15 @@
 - `grep "text" file.txt`
 - wc -l -b to count entries by byte or line etc
 
+- man {command} or {command} --help
+- touch	Create file
+- mkdir	Create a folder
+- cp Copy a file or folder
+- mv Move a file or folder
+- rm remove	Remove a file or folder
+- file Determine the type of a file
+- su to change user
+  
 - wget
   
 - SCP (copy files with ssh)
@@ -41,4 +50,8 @@
 - The operator & allows us to execute commands in the background.
 - "&&" is used to make a list of commands to run for example command1 && command2
 - ">>" is used to append, and > is used to override. ex: `echo text > file.txt`
+- connect to ssh using command `ssh {username}@IP` or `ssh -i id_rsa username@host`
+- to convert from base64: `base64 -d file > fileb`
+- to find sha265 of a file in binary: `sha265sum fileb`
+- to find the size of a file in bytes: `stat -c %s fileb`
 
