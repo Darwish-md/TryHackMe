@@ -447,7 +447,6 @@ UDP Ports:
 HIPs (Host-based Intrusion Prevention Systems) and HIDs (Host-based Intrusion Detection Systems) are cybersecurity technologies designed to protect individual computer systems (hosts) from unauthorized access, malicious activities, and security breaches. 
 
 hashcat powershellempire, metasploit mimikatz 
-linux tools(grep, cut, sort) Sudo !!
 regex
 sentinel
 
