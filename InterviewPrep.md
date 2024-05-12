@@ -446,9 +446,7 @@ UDP Ports:
 # HIPs/HIDs
 HIPs (Host-based Intrusion Prevention Systems) and HIDs (Host-based Intrusion Detection Systems) are cybersecurity technologies designed to protect individual computer systems (hosts) from unauthorized access, malicious activities, and security breaches. 
 
-hashcat powershellempire, metasploit mimikatz 
 regex
-sentinel
 
 
 Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
