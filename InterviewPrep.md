@@ -329,7 +329,6 @@ They involve creating web addresses that visually resemble legitimate ones by us
 - Elliptic Curve Cryptography (ECC) uses small keys to achieve strong crypto strength.
 - Geotagging adds geographic metadata (such as GPS coordinates) to files, such as photos taken with a smart phone.
 - Geofencing uses geographical location to control app access.
-- Side loading refers to installing mobile device apps directly from installation files, without using an app store.
 - A content delivery network (CDN) is a group of geographically distributed servers that speed up the delivery of web content by bringing it closer to where users are.
   
 -  A native API, short for Native Application Programming Interface, is a set of software functions and protocols provided by an operating system or platform to enable developers to create applications that are tightly integrated with and optimized for that specific system.
