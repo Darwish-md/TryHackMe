@@ -145,7 +145,6 @@ If the TCP segment has a size of 64, and -ff option is being used, how many IP f
 
 On the other hand, if you prefer to increase the size of your packets to make them look innocuous, you can use the option `--data-length NUM`, where num specifies the number of bytes you want to append to your packets.
 
-## 
 ## Fine-tuning scope & Performance  
 You can specify the ports you want to scan instead of the default 1000 ports:
 - port list: `-p22,80,443` will scan ports 22, 80 and 443.
@@ -160,6 +159,30 @@ You can specify the ports you want to scan instead of the default 1000 ports:
   - insane (5)
 - you can choose to control the packet rate using `--min-rate <number>` and `--max-rate <number>
 - you can control probing parallelization using `--min-parallelism <numprobes>` and `--max-parallelism <numprobes>`
+
+# Post Port Scans
+#### Service Detection
+Adding -sV to your Nmap command will collect and determine service and version information for the open ports.
+
+You can control the intensity with `--version-intensity LEVEL` where the level ranges between 0, the lightest, and 9, the most complete. `-sV --version-light` has an intensity of 2, while `-sV --version-all` has an intensity of 9.
+
+It is important to note that using -sV will force Nmap to proceed with the TCP 3-way handshake and establish the connection to recognize the service. In other words, stealth SYN scan -sS is not possible when -sV option is chosen.
+
+#### OS Detection
+OS detection can be enabled using `-O` like `nmap -sS -O 10.10.255.4`. 
+
+The OS detection is very convenient, but many factors might affect its accuracy. First and foremost, Nmap needs to find at least one open and one closed port on the target to make a reliable guess. Furthermore, the guest OS fingerprints might get distorted due to the rising use of virtualization and similar technologies. 
+
+We can use `--traceroute` to find the number of hops until the target. Ex: `nmap -sS --traceroute 10.10.255.4`. Standard traceroute starts with a packet of low TTL (Time to Live) and keeps increasing until it reaches the target. Nmap’s traceroute starts with a packet of high TTL and keeps decreasing it. It is worth mentioning that many routers are configured not to send ICMP Time-to-Live exceeded, which would prevent us from discovering their IP addresses.
+
+#### NSE 
+
+You can choose to run the scripts in the default category using `--script=default` or simply adding `-sC`. In addition to default, categories include auth, broadcast, brute, default, discovery, dos, exploit, external, fuzzer, intrusive, malware, safe, version, and vuln.
+
+EX: The command `sudo nmap -sS -sC 10.10.224.147`, where -sC will ensure that Nmap will execute the default scripts following the SYN scan. 
+
+You can also specify the script by name using `--script "SCRIPT-NAME".
+
 
 # Notes
 - If you don’t want Nmap to the DNS server, you can add `-n`.
@@ -182,3 +205,4 @@ You can specify the ports you want to scan instead of the default 1000 ports:
 - use `-v` for verbose output or `-vv` for even more verbosity.
 - you can use `-d` for debugging details or `-dd` for even more details.
 - The `-F` option instructs Nmap to scan only the top 100 most common ports. 
+- the `-n` option is used to disable DNS resolution.
