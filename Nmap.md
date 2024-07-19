@@ -206,3 +206,8 @@ You can also specify the script by name using `--script "SCRIPT-NAME".
 - you can use `-d` for debugging details or `-dd` for even more details.
 - The `-F` option instructs Nmap to scan only the top 100 most common ports. 
 - the `-n` option is used to disable DNS resolution.
+- `-A`	equivalent to -sV -O -sC --traceroute
+- `-oN`	save output in normal format
+- `-oG`	save output in grepable format
+- `-oX`	save output in XML format
+- `-oA`	save output in normal, XML and Grepable formats
