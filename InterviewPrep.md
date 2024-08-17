@@ -270,6 +270,9 @@ An individual or group involved in malicious cyber activity is called a Threat A
 
 7. Evasion Techniques: Threat campaigns employ evasion techniques to bypass security measures. This includes polymorphic malware, encryption, anti-analysis methods, and anti-forensic techniques to make it difficult for cybersecurity professionals to analyze and detect their activities.
 
+## Example
+The SolarWinds Compromise was a sophisticated supply chain cyber operation conducted by APT29 that was discovered in mid-December 2020. APT29 used customized malware to inject malicious code into the SolarWinds Orion software build process that was later distributed through a normal software update; they also used password spraying, token theft, API abuse, spear phishing, and other supply chain attacks to compromise user accounts and leverage their associated access. Victims of this campaign included government, consulting, technology, telecom, and other organizations in North America, Europe, Asia, and the Middle East. Industry reporting initially referred to the actors involved in this campaign as UNC2452, NOBELIUM, StellarParticle, Dark Halo, and SolarStorm.
+
 # STIX
 Structured Threat Information eXpression is a standardized XML programming language for conveying data about cybersecurity threats in a common language that can be easily understood by humans and security technologies. Designed for broad use, there are several core use cases for STIX.
 
