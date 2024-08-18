@@ -74,5 +74,5 @@
 - ">>" is used to append, and > is used to override. ex: `echo text > file.txt`
 - connect to ssh using command `ssh {username}@IP` or `ssh -i id_rsa username@host`
 - to convert from base64: `base64 -d file > fileb`
-- to find sha265 of a file in binary: `sha265sum fileb`
+- to find sha256 of a file in binary: `sha256sum fileb`
 - to find the size of a file in bytes: `stat -c %s fileb`
