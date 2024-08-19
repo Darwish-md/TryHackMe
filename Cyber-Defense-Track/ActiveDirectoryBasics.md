@@ -1,4 +1,4 @@
-- The main idea behind a domain is to centralise the administration of common components of a Windows computer network in a single repository called ***Active Directory (AD)***. 
+- The main idea behind a domain is to centralise the administration of common components of a Windows computer network in a single repository called ***Active Directory (AD)***. So AD is a central repository used to manage users, machines, shares, etc within and enterprise.
 - The server that runs the Active Directory services is known as a ***Domain Controller (DC)***.
 - ***Active Directory Domain Service (AD DS)*** acts as a catalogue that holds the information of all of the "objects" that exist on your network. Amongst the many objects supported by AD, we have users, groups, machines, printers, shares and many others.
 - security principals mean that they can be authenticated by the domain and can be assigned privileges over resources like files or printers.
