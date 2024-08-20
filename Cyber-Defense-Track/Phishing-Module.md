@@ -49,7 +49,7 @@ v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxTQIC7vZAHHZ7WVv/5
 ```
 - `Authentication-Results` email header shows the status of whether DKIM passed or failed.
 
-### DMARM (Domain-based Message Authentication Reporting, & Conformance):
+### DMARC (Domain-based Message Authentication Reporting, & Conformance):
 "DMARC, (Domain-based  Message Authentication Reporting, & Conformance) an open source standard, uses a concept called alignment to tie the result of two other open source standards, SPF (a published list of servers that are authorized to send email on behalf of a domain) and DKIM (a tamper-evident domain seal associated with a piece of email), to the content of an email. If not already deployed, putting a DMARC record into place for your domain will give you feedback that will allow you to troubleshoot your SPF and DKIM configurations if needed."
 
 ***Example of DKIM record***
