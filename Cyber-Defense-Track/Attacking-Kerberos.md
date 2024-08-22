@@ -61,6 +61,24 @@ Exs:
 #### 1. Kerberoasting
 Kerberoasting allows a user to request a service ticket for any service with a registered SPN then use that ticket to crack the service password.
 
+##### Steps in a Kerberoasting Attack:
+I. Initial Access:
+The attacker has a valid domain user account (even a low-privileged account). This allows them to interact with Active Directory.
+
+II. SPN Lookup:
+Every service running on an Active Directory domain has a Service Principal Name (SPN) associated with it. An attacker can query the domain to retrieve a list of SPNs, which are linked to service accounts.
+Tools like PowerView or SetSPN can be used to enumerate SPNs in the domain.
+
+III. Requesting the TGS:
+The attacker uses their legitimate user account to request a Kerberos service ticket (TGS) for the identified SPN.
+When this request is made, the Key Distribution Center (KDC) responds with a TGS encrypted using the service account's password hash (specifically using an NTLM or RC4 encryption algorithm based on the service account's password).
+
+IV. Ticket Extraction:
+The attacker extracts the TGS from memory. This ticket contains the encrypted portion which uses the service account's password hash as the key for encryption.
+
+V. Offline Cracking:
+Since the attacker doesn't know the password, they take the encrypted TGS and use password cracking tools to brute force or perform dictionary attacks to recover the plaintext password from the encrypted ticket.
+
 ##### What can be done with a service account?
 - Exfiltrate Data or Collect Loot:
   - If the service account is a domain admin, you gain extensive control similar to a golden/silver ticket attack. This allows you to gather loot such as dumping the NTDS.dit, which contains hashed passwords of all users in the Active Directory domain.
