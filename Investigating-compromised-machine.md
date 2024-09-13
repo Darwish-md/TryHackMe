@@ -38,3 +38,44 @@
 
 ## Look for Persistence Mechanisms
 - Autoruns from sysinternals
+
+# Linux
+## Bash History Logs
+- cat /root/.bash_history
+- cat /home/username/.bash_history
+
+## Cron logs
+- grep CRON /var/log/syslog
+- cat /var/log/cron
+
+## Running processes
+- `ps aux`
+  - Use the lsof command to see if any processes are opening unexpected files: `lsof -p <PID>`
+- top/htop: Check resource usage to see if there are any processes using unusually high CPU, memory, or I/O resources.
+- Use `pstree` to see a hierarchical view of processes and check for unusual parent-child process relationships:
+
+## Network Connections
+- netstat -tuln for 
+- netstat -anp for
+
+## Suspicious Users and Groups
+- cat /etc/passwd
+- cat /etc/shadow
+- cat /etc/sudoers
+
+## Logins
+- View the history of logins to the system.
+  - last
+  - lastb
+
+## Crontabs
+- crontab -l
+- sudo crontab -l -u username
+- for global: cat /etc/crontab
+
+
+
+
+
+
+
