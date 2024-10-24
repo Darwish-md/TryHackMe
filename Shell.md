@@ -1,4 +1,4 @@
-# Two most known types
+# Reverse vs Bind shells
 1. Reverse shells
 are when the target is forced to execute code that connects back to your computer. 
 
