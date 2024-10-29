@@ -128,4 +128,9 @@ How to use multi/handler?
 4. In metasploit we should see that the listener already caught the shell and we can foreground the session with `sessions <sessionNum>`.
 
 
+# Webshells
+"Webshell" is a colloquial term for a script that runs inside a webserver (usually in a language such as PHP or ASP) which executes code on the server. Essentially, commands are entered into a webpage -- either through a HTML form, or directly as arguments in the URL -- which are then executed by the script, with the results returned and written to the page. 
 
+Example: `<?php echo "<pre>" . shell_exec($_GET["cmd"]) . "</pre>"; ?>` and any commands we enter in the URL after ?cmd= will be executed on the system -- be it Windows or Linux. To get an RCE, we would send a request to this url using curl or the browser: `http://<target_server>/vulnerable.php?cmd=<your_command>`.
+
+there are a variety of webshells available on Kali by default at /usr/share/webshells -- including the infamous PentestMonkey php-reverse-shell -- a full reverse shell written in PHP. 
