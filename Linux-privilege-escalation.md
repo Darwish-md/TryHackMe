@@ -58,4 +58,26 @@ The netstat command can be used with several different options to gather informa
     -n: Do not resolve names
     -o: Display timers
 
+### find
+Example usage:
+- `find / -size 50M`: find files with a 50 MB size
+- `find / -type f -perm 0777`: find files with the 777 permissions (files readable, writable, and executable by all users)
+- `find /home -user frank`
+- `find / -perm -o x -type d 2>/dev/null` : Find world-executable folders
+- `find / -perm a=x`: find executable files
 
+Folders and files that can be written to or executed from:
+- `find / -writable -type d 2>/dev/null` : Find world-writeable folders
+- `find / -perm -222 -type d 2>/dev/null`: Find world-writeable folders
+- `find / -perm -o w -type d 2>/dev/null`: Find world-writeable folders
+
+The ***SUID*** bit allows the file to run with the privilege level of the account that owns it, rather than the account which runs it. To find files that have the SUID bit set:
+- `find / -perm -u=s -type f 2>/dev/null`
+
+# Automated Enumeration Tools
+A few examples: 
+- LinPeas: https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+- LinEnum: https://github.com/rebootuser/LinEnum
+- LES (Linux Exploit Suggester): https://github.com/mzet-/linux-exploit-suggester
+- Linux Smart Enumeration: https://github.com/diego-treitos/linux-smart-enumeration
+- Linux Priv Checker: https://github.com/linted/linuxprivchecker
