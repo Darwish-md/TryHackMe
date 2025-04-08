@@ -446,15 +446,4 @@ UDP Ports:
 ```
 
 # HIPs/HIDs
-HIPs (Host-based Intrusion Prevention Systems) and HIDs (Host-based Intrusion Detection Systems) are cybersecurity technologies designed to protect individual computer systems (hosts) from unauthorized access, malicious activities, and security breaches. 
-
-regex
-
-
-Use rustscan to discover open ports and then use nmap with open ports, saves tons of time
-It is painfully slow using the attack box for me as well if using -p- but -A runs really quick on its own. I'm in the tail end of network services as well.
-You can use -T5 to increase the speed of it.
-nmap has a --min-rate flag where you can specify the minimum amount of packets to be sent per second. I find that 3-5,000pps is a pretty safe number, but it can always be adjusted as needed
-nmap -sC -sV -A -T5 
--F -Pn -n
---packet-trace
+HIPs (Host-based Intrusion Prevention Systems) and HIDs (Host-based Intrusion Detection Systems) are cybersecurity technologies designed to protect individual computer systems (hosts) from unauthorized access, malicious activities, and security breaches.
